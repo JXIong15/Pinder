@@ -1,8 +1,8 @@
 import React, {useState} from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button"
-import "src\App.css"
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+
+// import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 export default function Login(){
     const [email, setEmail] = useState("");
@@ -14,6 +14,7 @@ export default function Login(){
 
     function handleSubmit(event){
         event.preventDefault();
+        console.log(email, password)
     }
 
     return (

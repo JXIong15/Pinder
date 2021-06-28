@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import login from './containers/login';
 
 
@@ -9,7 +9,7 @@ function App() {
     <Router>
       <div>
         <Switch>
-          <Route exact path="/"component={home}></Route>  
+          <Route exact path="/"component={login}></Route>  
         </Switch>
       Hello world
     </div>
