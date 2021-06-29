@@ -1,19 +1,19 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const matchesSchema = new Schema({
+const likesSchema = new Schema({
     user: {
         type: Schema.Types.ObjectId,
         ref: "User"
     },
-    matches: [
+    likes: [
         {
-            user: Schema.Types.ObjectId,
+            type: Schema.Types.ObjectId,
             ref: "User"
         }
     ]
 })
 
-const Matches = mongoose.model("Matches", matchesSchema);
+const Likes = mongoose.model("Likes", likesSchema);
 
-module.exports = Matches;
+module.exports = Likes;
