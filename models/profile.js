@@ -6,9 +6,11 @@ const profileSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: "User"
     },
+    intent: { type: String, required: true },
     name: { type: String, required: true },
     age: { type: Number, required: true },
     gender: { type: Number, required: true },
+    sex: { type: String, required: true },
     location: [{
         city: { type: String, required: true },
         state: { type: String, required: true }

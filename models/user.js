@@ -6,17 +6,17 @@ const userSchema = new Schema({
     type: String,
     required: true,
     unique: true,
-    validate: {
-      isEmail: true,
-    },
+    // validate: {
+    //   isEmail: true,
+    // },
   }],
   password: [{
     type: String,
     required: true,
-    validate: {
-      len: [6],
-      isAlphaNumeric: true,
-    },
+    // validate: {
+    //   len: [6],
+    //   isAlphaNumeric: true,
+    // },
   }]
 });
 
