@@ -1,13 +1,31 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+
+/* login page css */
+.container{
+  display: flex;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+
+.loginCard {
+  width: 30vw;
+  height: 80vh;
+  margin-top: 20vh;
+  margin: 0 auto;
+  float: none;
+}
+
+.loginForm {
+  height: auto;
+}
+
+.loginGroup {
+  margin-top: 3vh;
+  padding: 5px;
+  font-weight: bold;
+}
+
+.loginBtn{
+  margin-top: 4vh;
+  padding: 5px;
+  position: relative;
+  left: 40%;
 }

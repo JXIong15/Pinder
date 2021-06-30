@@ -1,6 +1,11 @@
+
+
 import './App.css';
+ main
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import login from './containers/login';
+import "./index.css"
+
 
 
 // Begin Jou test
@@ -12,6 +17,15 @@ import Cards from "./containers/cards";
 function App() {
   
   return (
+
+    <Router>
+      <div>
+        <Switch>
+          <Route exact path="/"component={login}></Route>  
+        </Switch>
+      
+    </div>
+
     <div>
       <Router>
         <div>
@@ -32,6 +46,7 @@ function App() {
         </div>
 
       </Router>
+ main
 
 
 

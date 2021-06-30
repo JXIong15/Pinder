@@ -1,6 +1,8 @@
 import React, {useState} from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button"
+import Card from "react-bootstrap/Card"
+import Container from "react-bootstrap/Container"
 
 // import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
@@ -18,10 +20,12 @@ export default function Login(){
     }
 
     return (
-        <div className="Login">
-      <Form onSubmit={handleSubmit}>
-        <Form.Group size="lg" controlId="email">
-          <Form.Label>Email</Form.Label>
+        <Container className = "container">
+        <Card className = "loginCard"> 
+          <Card.Header>Login</Card.Header>
+      <Form className = "loginForm" onSubmit={handleSubmit}>
+        <Form.Group className = "loginGroup" size="lg" controlId="email">
+          <Form.Label className = "formLabel">Email</Form.Label>
           <Form.Control
             autoFocus
             type="email"
@@ -29,19 +33,20 @@ export default function Login(){
             onChange={(e) => setEmail(e.target.value)}
           />
         </Form.Group>
-        <Form.Group size="lg" controlId="password">
-          <Form.Label>Password</Form.Label>
+        <Form.Group className = "loginGroup" size="lg" controlId="password">
+          <Form.Label className = "formLabel">Password</Form.Label>
           <Form.Control
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
         </Form.Group>
-        <Button block size="lg" type="submit" disabled={!validateForm()}>
+        <Button className = "loginBtn" block type="submit" disabled={!validateForm()}>
           Login
         </Button>
       </Form>
-    </div>
-  );
+      </Card>
+      </Container>
+        );
     
 }
