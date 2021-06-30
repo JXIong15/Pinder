@@ -1,7 +1,5 @@
-import bcrypt from "bcryptjs";
-import jwt from "jsonwebtoken";
 
-const db = require("../models");
+const db = require("../models/user");
 
 // Definning a method for modelsControllers
 
@@ -18,7 +16,7 @@ module.exports = {
             .findById(req.params.id)
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
-    },
+    }
     
 };
 
