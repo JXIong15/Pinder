@@ -1,7 +1,5 @@
 
-
-import './App.css';
- main
+import './index.css';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import login from './containers/login';
 import "./index.css"
@@ -23,11 +21,10 @@ function App() {
         <Switch>
           <Route exact path="/"component={login}></Route>  
         </Switch>
-      
-    </div>
+        </div>
 
-    <div>
-      <Router>
+      
+
         <div>
           <Switch>
             {/* If !logged-in */}
@@ -45,15 +42,13 @@ function App() {
           </Switch>
         </div>
 
-      </Router>
- main
+    </Router>
 
 
 
 
 
 
-    </div>
   );
 }
 
