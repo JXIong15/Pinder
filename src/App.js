@@ -17,7 +17,7 @@ function App() {
         <div>
           <Switch>
             {/* If !logged-in */}
-            <Route exact path="/" component={login} />
+            {/* <Route exact path="/" component={login} /> */}
             {/* else
             
             // Jou test 
