@@ -13,7 +13,7 @@ const likesSeed = [
         likes: [4]
     },
     {
-        // user: 2,
+        user: 2,
         likes: [4, 9]
     },
     {
