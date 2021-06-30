@@ -7,6 +7,7 @@ mongoose.connect(
     "mongodb://localhost/reactuserlist"
 );
 
+
 const userSeed = [
     {
         _id: 1,
