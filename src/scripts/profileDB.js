@@ -1,15 +1,16 @@
 const mongoose = require("mongoose");
 const db = require("../models");
+const { Types: { ObjectId } } = mongoose;
 
-
-mongoose.connect(
-    process.env.MONGODB_URI ||
-    "mongodb://localhost/reactuserlist"
-);
+// mongoose.connect(
+//     process.env.MONGODB_URI ||
+//     "mongodb://localhost/reactuserlist", 
+//     {useUnifiedTopology: true, useFindAndModify: false, useNewUrlParser: true}
+// );
 
 const profileSeed = [
     {
-        user: 1,
+        user: ObjectId("0000001fe136c637652883bc"),
         intent: "Friends",
         name: "SpongeBob SquarePants",
         age: 22,
@@ -24,7 +25,7 @@ const profileSeed = [
         bio: "Goofy, funny, care free guy."
     },
     {
-        user: 2,
+        user: ObjectId("00000002f8591e57d818ea77"),
         intent: "Friends",
         name: "Ash Ketchum",
         age: 23,
@@ -39,7 +40,8 @@ const profileSeed = [
         bio: "Certified dog trainer. I love anything having to do with animals!"
     },
     {
-        user: 3,
+        _id: ObjectId(13),
+        user: ObjectId("00000003f8591e57d818ea78"),
         intent: "Friends",
         name: "Shaggy Rogers",
         age: 21,
@@ -54,7 +56,8 @@ const profileSeed = [
         bio: "My kind of date is lounging around having a smoke or two and listening to grooooovy music."
     },
     {
-        user: 4,
+        _id: ObjectId(14),
+        user: ObjectId("00000004f8591e57d818ea79"),
         intent: "Friends",
         name: "Emily Elizabeth Howard",
         age: 19,
@@ -69,7 +72,7 @@ const profileSeed = [
         bio: "Aspiring teacher. I have a love for learning new things. My ideal date is an intellectual conversation at a cafe or in nature."
     },
     {
-        user: 5,
+        user: ObjectId("00000005f8591e57d818ea7a"),
         intent: "Friends",
         name: "Kiba Inuzuka",
         age: 28,
@@ -84,7 +87,7 @@ const profileSeed = [
         bio: "I seek excitement and growth. Don't bore me with anything unnecessary, and don't hold me back."
     },
     {
-        user: 6,
+        user: ObjectId("00000006f8591e57d818ea7b"),
         intent: "Friends",
         name: "Janet Smith",
         age: 25,
@@ -99,7 +102,7 @@ const profileSeed = [
         bio: "I like to party. I'm young, wild, and free! Looking for some excitement, so hit my line if that's your thing! ;)"
     },
     {
-        user: 7,
+        user: ObjectId("00000007f8591e57d818ea7c"),
         intent: "Friends",
         name: "Amber Jones",
         age: 33,
@@ -114,7 +117,7 @@ const profileSeed = [
         bio: "Looking for something serious. I'm a busy business woman who doesn't have time to mess around. If you're just looking for a hook up, don't swipe on me. If you're looking to grow, let's connect!"
     },
     {
-        user: 8,
+        user: ObjectId("00000008f8591e57d818ea7d"),
         intent: "Friends",
         name: "Aang Avatar",
         age: 32,
@@ -129,7 +132,7 @@ const profileSeed = [
         bio: "I love going on adventure! Long hikes and walks. The water is beautiful too. I'm a free spirit always eager to learn more."
     },
     {
-        user: 9,
+        user: ObjectId("00000009f8591e57d818ea7e"),
         intent: "Friends",
         name: "Kim Kardashian",
         age: 40,
@@ -144,7 +147,7 @@ const profileSeed = [
         bio: "Self Love. Empower Women. Newly divorced with 4 children. I'm an entrepreneaur looking to mingle with others."
     },
     {
-        user: 10,
+        user: ObjectId("0000000af8591e57d818ea7f"),
         intent: "Friends",
         name: "Jennifer Aniston",
         age: 52,
@@ -160,14 +163,17 @@ const profileSeed = [
     }
 ];
 
+const seedProfile = () => {
 db.Profile
     .remove({})
     .then(() => db.Profile.collection.insertMany(profileSeed))
     .then(data => {
-        console.log(data.result.n + " records inserted!");
-        process.exit(0);
+        console.log(data.result.n + " records inserted! (Profile)");
     })
     .catch(err => {
         console.error(err);
         process.exit(1);
     });
+}
+
+module.exports = seedProfile;
