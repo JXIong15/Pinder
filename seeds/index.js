@@ -16,7 +16,7 @@ const seedAll = async () => {
     await profileSeed();
     await likesSeed();
     await reviewSeed();
-    // process.exit(0);
+    // await process.exit(0);
 }
 
 seedAll()
