@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
+
 import Review from "./reviews";
 
 // ADD THIS AFTER CONNECTING TO MONGODB ATLAS
@@ -11,9 +12,8 @@ function Card() {
             <div className="head">
                 <h1>Name</h1>
                 <h2>Rating: 5</h2>
-                <Router>
-                    <Link to="/reviews" role="link">Review(s)</Link>
-                </Router>
+                <Link to="/reviews" role="link">Review(s)</Link>
+
             </div>
             <img alt="picture(s)"></img>
             <div className="demo">

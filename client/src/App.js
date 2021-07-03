@@ -7,8 +7,8 @@ import "./index.css"
 
 
 // Begin Jou test
-// import Cards from "../../containers/cards";
-// import userSeed from "./scripts/userDB";
+import Cards from "./containers/cards";
+import Review from "./containers/reviews";
 // End Jou test
 
 
@@ -19,7 +19,7 @@ function App() {
     <Router>
       <div>
         <Switch>
-          <Route exact path="/"component={login}></Route>  
+          {/* <Route exact path="/"component={login}></Route>   */}
         </Switch>
         </div>
 
@@ -29,13 +29,14 @@ function App() {
           <Switch>
             {/* If !logged-in */}
             {/* <Route exact path="/" component={login} /> */}
-            {/* else
+            {/* else*/}
             
-            // Jou test 
-            {/* <Card seed={userSeed} /> */}
-            {/* <Route exact path="/" component={Cards} /> */}
+            {/* // Jou test  */}
+            {/* <Card /> */}
+            <Route exact path="/" component={Cards} />
 
             {/* <Cards /> */}
+            <Route exact path="/reviews" component={Review} />
             {/* End Jou test */}
 
             

@@ -10,6 +10,7 @@ function Review() {
     return (
         <div>
             <h1>REVIEWS</h1>
+            <p>nkjfkjds df cskfjsdkfhsfhsu wueh kajaslfjdsf dsfhdsjf sdhfeijbdhsf</p>
         
         </div>
     );

@@ -1,7 +1,7 @@
 import React from "react";
 
 
-
+// DISPLAY IN MESSAGES AFTER BRIAN FINISHES MESSAGING COMPONENT
 function Rate() {
     return (
         <div>
