@@ -9,6 +9,7 @@ import "./index.css"
 // Begin Jou test
 import Cards from "./containers/cards";
 import Review from "./containers/reviews";
+import VideoChat from './containers/VideoChat';
 // End Jou test
 
 
@@ -39,7 +40,7 @@ function App() {
             <Route exact path="/reviews" component={Review} />
             {/* End Jou test */}
 
-            
+            <Route exact path="/test" component={VideoChat} />
           </Switch>
         </div>
 
