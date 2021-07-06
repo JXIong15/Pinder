@@ -25,9 +25,11 @@
   "homepage": "https://github.com/JXIong15/Pinder#readme",
   "dependencies": {
     "concurrently": "^6.2.0",
+    "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "if-env": "^1.0.4",
     "mongoose": "^5.13.1",
+    "twilio": "^3.65.0",
     "validator": "^13.6.0"
   }
 }

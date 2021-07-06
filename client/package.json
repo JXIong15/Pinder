@@ -16,6 +16,7 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
     "routes": "^2.1.0",
+    "twilio-video": "^2.15.1",
     "web-vitals": "^1.1.2"
   },
   "scripts": {
@@ -41,5 +42,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "proxy": "http://localhost:3000"
 }
