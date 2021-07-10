@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 
-import Review from "./reviews";
+import Review from "./Reviews";
 
 // ADD THIS AFTER CONNECTING TO MONGODB ATLAS
 // function Card(props) {

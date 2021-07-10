@@ -1,14 +1,17 @@
 
 import './index.css';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import login from './containers/login';
-import "./index.css"
+import Login from './containers/Login';
+import "./index.css";
+import Forms from './containers/Forms';
+import Navbar from './containers/Navbar'
+
 
 
 
 // Begin Jou test
-import Cards from "./containers/cards";
-import Review from "./containers/reviews";
+import Cards from "./containers/Cards";
+import Review from "./containers/Reviews";
 import VideoChat from './containers/VideoChat';
 // End Jou test
 
@@ -19,6 +22,7 @@ function App() {
 
     <Router>
       <div>
+        <Navbar/>
         <Switch>
           {/* <Route exact path="/"component={login}></Route>   */}
         </Switch>
@@ -41,8 +45,18 @@ function App() {
             {/* End Jou test */}
 
             <Route exact path="/test" component={VideoChat} />
+
+            <Route exact path="/login" component={Login} />
+
+
+            <Route exact path="/forms" component={Forms} />
+
           </Switch>
         </div>
+
+
+
+
 
     </Router>
 
