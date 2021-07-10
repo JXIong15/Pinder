@@ -6,7 +6,7 @@ import Container from "react-bootstrap/Container"
 
 // import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
-function Logins(){
+function Login(){
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
@@ -51,4 +51,4 @@ function Logins(){
     
 }
 
-export default Logins;
+export default Login;
