@@ -2,13 +2,6 @@ const mongoose = require("mongoose");
 const db = require("../models");
 const { Types: { ObjectId } } = mongoose;
 
-
-// mongoose.connect(
-//     process.env.MONGODB_URI ||
-//     "mongodb://localhost/reactuserlist", 
-//     {useUnifiedTopology: true, useFindAndModify: false, useNewUrlParser: true}
-// );
-
 const reviewSeed = [
     {
         user: ObjectId("0000001fe136c637652883bc"),
