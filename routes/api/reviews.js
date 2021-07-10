@@ -14,8 +14,8 @@ router.route("/")
 // Matches with "/api/reviews/:id"
 router
   .route("/:id")
-  .get(ReviewsControllers.findById)
-  .delete(ReviewsControllers.remove)
-  .post(ReviewsControllers.create);
+  .get(ReviewsControllers.findById) // IS THERE A WAY TO DO THIS WITH USERID?
+//   .delete(ReviewsControllers.remove)
+//   .post(ReviewsControllers.create);
 
 module.exports = router;
