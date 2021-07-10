@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import "./index.css";
-import Login from './containers/Logins';
+import Login from './containers/Login';
 import Forms from './containers/Forms';
 import Navbar from './containers/Navbar';
 
