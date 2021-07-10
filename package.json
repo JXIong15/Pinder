@@ -23,8 +23,12 @@
     "url": "https://github.com/JXIong15/Pinder/issues"
   },
   "homepage": "https://github.com/JXIong15/Pinder#readme",
+  "devDependencies": {
+    "concurrently": "^4.1.0",
+    "nodemon": "^1.18.7"
+  },
   "dependencies": {
-    "concurrently": "^6.2.0",
+    "axios": "^0.21.1",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "if-env": "^1.0.4",

@@ -8,12 +8,10 @@ import Navbar from './containers/Navbar'
 
 
 
-
-// Begin Jou test
 import Cards from "./containers/Cards";
 import Review from "./containers/Reviews";
 import VideoChat from './containers/VideoChat';
-// End Jou test
+
 
 
 function App() {
