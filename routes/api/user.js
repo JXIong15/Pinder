@@ -4,12 +4,12 @@ const UserController = require("../../controllers/UserControllers");
 
 // TO-DO: use withAuth on all funcs
 
-// Matches with "/api/profile"
+// Matches with "/api/user"
 router.route("/")
   .get(UserController.findAll)
   .post(UserController.create);
 
-// Matches with "/api/profile/:id"
+// Matches with "/api/user/:id"
 router
   .route("/:id")
   .get(UserController.findById)

@@ -1,10 +1,6 @@
 # Getting Started with Create React App
 
 
-## Jou To-Do
-* add verifiers to User.js in Models
-* Fix seed data in seedsDB.js
-    * Add ObjectIds
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
