@@ -6,7 +6,8 @@
 * delete certain fetches from Likes and Reviews routes
 * add withAuth to all routes
 * Don't allow for ratings to be edited. Delete "PUT" route in Reviews
-
+* add images to profile model and seed
+* Cloudinary for image upload
 
 
 
@@ -33,8 +34,8 @@ Pinder allows users to match with others who have the same intent as them. In ad
 ## Functionality
 * The user can create an account where they will have to fill out a form for their user preferences.
 * After logging in, the user will be matched with other users who have the same intent, sexuality, and location.
-* By swiping `UP OR DOWN?` the user likes another profile
-* By swiping `UP OR DOWN`, the user passes on another profile
+* By swiping `UP OR DOWN?`, the user likes another profile
+* By swiping `UP OR DOWN?`, the user passes on another profile
 * After matching with a profile, the users can message and videochat with each other
     * the user can review and rate that profile
 * By clicking on a matched profile, the user view that profile's information
