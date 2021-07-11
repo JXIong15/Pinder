@@ -4,7 +4,7 @@ const { Types: { ObjectId } } = mongoose;
 
 const reviewSeed = [
     {
-        user: ObjectId("0000001fe136c637652883bc"),
+        _id: ObjectId("0000001fe136c637652883bc"),
         reviews: [
             {
                 reviewing: ObjectId("00000004f8591e57d818ea79"),
@@ -21,7 +21,7 @@ const reviewSeed = [
         ]
     },
     {
-        user: ObjectId("00000002f8591e57d818ea77"),
+        _id: ObjectId("00000002f8591e57d818ea77"),
         reviews: [
             {
                 reviewing: ObjectId("0000000af8591e57d818ea7f"),
@@ -44,7 +44,7 @@ const reviewSeed = [
         ]
     },
     {
-        user: ObjectId("00000003f8591e57d818ea78"),
+        _id: ObjectId("00000003f8591e57d818ea78"),
         reviews: [
             {
                 reviewing: ObjectId("00000009f8591e57d818ea7e"),
@@ -55,7 +55,7 @@ const reviewSeed = [
         ]
     },
     {
-        user: ObjectId("00000004f8591e57d818ea79"),
+        _id: ObjectId("00000004f8591e57d818ea79"),
         reviews: [
             {
                 reviewing: ObjectId("0000001fe136c637652883bc"),
@@ -78,7 +78,7 @@ const reviewSeed = [
         ]
     },
     {
-        user: ObjectId("00000005f8591e57d818ea7a"),
+        _id: ObjectId("00000005f8591e57d818ea7a"),
         reviews: [
             {
                 reviewing: ObjectId("00000004f8591e57d818ea79"),
@@ -95,7 +95,7 @@ const reviewSeed = [
         ]
     },
     {
-        user: ObjectId("00000006f8591e57d818ea7b"),
+        _id: ObjectId("00000006f8591e57d818ea7b"),
         reviews: [
             {
                 reviewing: ObjectId("00000003f8591e57d818ea78"),
@@ -124,11 +124,11 @@ const reviewSeed = [
         ]
     },
     {
-        user: ObjectId("00000007f8591e57d818ea7c"),
+        _id: ObjectId("00000007f8591e57d818ea7c"),
         reviews: []
     },
     {
-        user: ObjectId("00000008f8591e57d818ea7d"),
+        _id: ObjectId("00000008f8591e57d818ea7d"),
         reviews: [
             {
                 reviewing: ObjectId("00000006f8591e57d818ea7b"),
@@ -139,7 +139,7 @@ const reviewSeed = [
         ]
     },
     {
-        user: ObjectId("00000009f8591e57d818ea7e"),
+        _id: ObjectId("00000009f8591e57d818ea7e"),
         reviews: [
             {
                 reviewing: ObjectId("0000001fe136c637652883bc"),
@@ -162,7 +162,7 @@ const reviewSeed = [
         ]
     },
     {
-        user: ObjectId("0000000af8591e57d818ea7f"),
+        _id: ObjectId("0000000af8591e57d818ea7f"),
         reviews: [
             {
                 reviewing: ObjectId("0000001fe136c637652883bc"),
