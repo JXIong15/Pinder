@@ -1,6 +1,8 @@
 # Getting Started with Create React App
 
-
+## Jou To-Do
+* delete certain fetches from Likes and Reviews routes
+* add withAuth to all routes
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
