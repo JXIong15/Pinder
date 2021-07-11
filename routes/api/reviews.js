@@ -8,14 +8,13 @@ const ReviewsControllers = require("../../controllers/ReviewsControllers");
 
 // Matches with "/api/reviews"
 router.route("/")
-  .get(ReviewsControllers.findAll) 
-//   .post(LikesControllers.create);
+  .get(ReviewsControllers.findAll) // FOR TESTING. DELETE LATER
 
 // Matches with "/api/reviews/:id"
 router
   .route("/:id")
-  .get(ReviewsControllers.findById) // IS THERE A WAY TO DO THIS WITH USERID?
-//   .delete(ReviewsControllers.remove)
-//   .post(ReviewsControllers.create);
+  .get(ReviewsControllers.findById)
+  .delete(ReviewsControllers.remove)
+  .put(ReviewsControllers.update); // push or move from array first before updating (PUT)
 
 module.exports = router;
