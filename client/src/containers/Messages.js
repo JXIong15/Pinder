@@ -1,4 +1,4 @@
-// after connection to MongoDB Atlas, put data in an array.
+// after login
 // map through array into card.js
 import React, { Component } from "react";
 import Card from "./Card";
@@ -7,7 +7,8 @@ import API from "../utils/API";
 class Cards extends Component {
   state = {
     allProfiles: [],
-    profileOptions: [] // PROFILES MEETING CRITERIA
+    matches: [],
+    profileMatches: []
   };
 
   componentDidMount() {
@@ -23,11 +24,22 @@ class Cards extends Component {
 
   // sort through the array of all users and chooses users who fit the desired criteria
   sortProfiles = () => {
-    this.setState({ profileOptions: 
+    // const userID=
+    // get user likes first
+    API.getLikes(userID)
+      .then(res => {
+        this.setState({matches: res.data})
+      })
+      .catch(err => {
+        console.log(err);
+      })
+
+
+    this.setState({ profileMatches: 
       this.state.allProfiles.map((profile) => {
         console.log(profile);
-        // IF INTENT AND LOCATION ARE THE SAME
-        // SEXUATLITY
+        // SEE IF ANY USER LIKES MATCH WITH PROFILE LIKES
+        // IF USERS MATCH WITH EACH OTHER
         return {
             key: profile._id,
             _id: profile._id,
@@ -45,8 +57,8 @@ class Cards extends Component {
   }
 
   // MAKE FUNCTIONS FOR BUTTONS TO PASS
-  likeBtn = (_id) => {
-    console.log("Liked", _id);
+  messageBtn = (_id) => {
+    console.log("Message", _id);
   }
 
   dislikeBtn = (_id) => {
@@ -67,10 +79,8 @@ class Cards extends Component {
             bio={profile.bio}
             pictures={profile.pictures}
 
-            btn1={this.likeBtn}
+            btn1={this.messageBtn}
             btn2={this.dislikeBtn}
-            label1="Like"
-            label2="Dislike"
           />
         })}
       </div>

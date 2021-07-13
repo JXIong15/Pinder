@@ -5,9 +5,6 @@ import Forms from './containers/Forms';
 import Navbar from './containers/Navbar'
 import Matches from './containers/Matches'
 
-
-
-
 import Cards from "./containers/Cards";
 import Review from "./containers/Reviews";
 import VideoChat from './containers/VideoChat';
@@ -15,9 +12,7 @@ import VideoChat from './containers/VideoChat';
 
 
 function App() {
-  
   return (
-
     <Router>
       <div>
         <Navbar/>
@@ -26,8 +21,7 @@ function App() {
         </Switch>
         </div>
 
-      
-
+    
         <div>
           <Switch>
             {/* If !logged-in */}
@@ -37,7 +31,6 @@ function App() {
             {/* // Jou test  */}
             {/* <Card /> */}
             <Route exact path="/" component={Cards} />
-
             {/* <Cards /> */}
             <Route exact path="/reviews" component={Review} />
             {/* End Jou test */}
