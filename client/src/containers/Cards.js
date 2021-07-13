@@ -13,11 +13,35 @@ class Cards extends Component {
   componentDidMount() {
     API.getAllProfiles()
       .then(res => {
-        this.setState({ allProfiles: res.data })
+        this.setState({ allProfiles: res.data });
+        this.sortProfiles();
       })
       .catch(err => {
         console.log(err);
       })
+  }
+
+  // sort through the array of all users and chooses users who fit the desired criteria
+  sortProfiles = () => {
+    this.setState({ profileOptions: 
+      this.state.allProfiles.map((profile) => {
+        console.log(profile);
+        // IF INTENT AND LOCATION ARE THE SAME
+        // SEXUATLITY
+        return {
+            key: profile._id,
+            _id: profile._id,
+            first: profile.first,
+            last: profile.last,
+            age: profile.age,
+            gender: profile.gender,
+            city: profile.location[0].city,
+            state: profile.location[0].state,
+            bio: profile.bio,
+            pictures: profile.pictures
+        }
+      })
+    })
   }
 
   // MAKE FUNCTIONS FOR BUTTONS TO PASS
@@ -29,18 +53,17 @@ class Cards extends Component {
     console.log("Dislike", _id);
   }
 
-
   render() {
     return (
       <div>
-        {this.state.allProfiles.map((profile) => {
+        {this.state.profileOptions.map((profile) => {
           return <Card
             key={profile._id}
             _id={profile._id}
             name={profile.first + " " + profile.last}
             age={profile.age}
             gender={profile.gender}
-            location={profile.location[0].city + ", " + profile.location[0].state}
+            location={profile.city + ", " + profile.state}
             bio={profile.bio}
             pictures={profile.pictures}
 

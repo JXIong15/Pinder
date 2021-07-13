@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import Review from "./Reviews";
 
-// TO-DO: ADD BUTTON FUNCTIONS, RATING, AND REVIEWS
+// TO-DO: ADD RATING, AND REVIEWS
 function Card(props) {
     return (
         <div className="card">
