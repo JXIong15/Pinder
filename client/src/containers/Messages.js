@@ -15,7 +15,7 @@ class Cards extends Component {
     API.getAllProfiles()
       .then(res => {
         this.setState({ allProfiles: res.data });
-        this.sortProfiles();
+        // this.sortProfiles();
       })
       .catch(err => {
         console.log(err);
@@ -26,34 +26,34 @@ class Cards extends Component {
   sortProfiles = () => {
     // const userID=
     // get user likes first
-    API.getLikes(userID)
-      .then(res => {
-        this.setState({matches: res.data})
-      })
-      .catch(err => {
-        console.log(err);
-      })
+    // API.getLikes(userID)
+    //   .then(res => {
+    //     this.setState({matches: res.data})
+    //   })
+    //   .catch(err => {
+    //     console.log(err);
+    //   })
 
 
-    this.setState({ profileMatches: 
-      this.state.allProfiles.map((profile) => {
-        console.log(profile);
-        // SEE IF ANY USER LIKES MATCH WITH PROFILE LIKES
-        // IF USERS MATCH WITH EACH OTHER
-        return {
-            key: profile._id,
-            _id: profile._id,
-            first: profile.first,
-            last: profile.last,
-            age: profile.age,
-            gender: profile.gender,
-            city: profile.location[0].city,
-            state: profile.location[0].state,
-            bio: profile.bio,
-            pictures: profile.pictures
-        }
-      })
-    })
+    // this.setState({ profileMatches: 
+    //   this.state.allProfiles.map((profile) => {
+    //     console.log(profile);
+    //     // SEE IF ANY USER LIKES MATCH WITH PROFILE LIKES
+    //     // IF USERS MATCH WITH EACH OTHER
+    //     return {
+    //         key: profile._id,
+    //         _id: profile._id,
+    //         first: profile.first,
+    //         last: profile.last,
+    //         age: profile.age,
+    //         gender: profile.gender,
+    //         city: profile.location[0].city,
+    //         state: profile.location[0].state,
+    //         bio: profile.bio,
+    //         pictures: profile.pictures
+    //     }
+    //   })
+    // })
   }
 
   // MAKE FUNCTIONS FOR BUTTONS TO PASS
@@ -68,7 +68,19 @@ class Cards extends Component {
   render() {
     return (
       <div>
-        {this.state.profileOptions.map((profile) => {
+        <h1>Messages</h1>
+
+{/* example (MAP THROUGH ARR) */}
+      {/* 
+      
+      for each element in this.state.profileMatches
+        create a link that will direct to the DM with that user
+        display matched Profile's name, and message notification if there are any
+      
+      */}
+{/* example end */}
+
+        {/* {this.state.profileOptions.map((profile) => {
           return <Card
             key={profile._id}
             _id={profile._id}
@@ -82,7 +94,7 @@ class Cards extends Component {
             btn1={this.messageBtn}
             btn2={this.dislikeBtn}
           />
-        })}
+        })} */}
       </div>
     );
   }
