@@ -4,7 +4,7 @@ import React, { Component } from "react";
 import Card from "./Card";
 import API from "../utils/API";
 
-class Cards extends Component {
+class Messages extends Component {
   state = {
     allProfiles: [],
     matches: [],
@@ -72,7 +72,7 @@ class Cards extends Component {
 
 {/* example (MAP THROUGH ARR) */}
       {/* 
-      
+
       for each element in this.state.profileMatches
         create a link that will direct to the DM with that user
         display matched Profile's name, and message notification if there are any
@@ -100,4 +100,4 @@ class Cards extends Component {
   }
 }
 
-export default Cards;
+export default Messages;
