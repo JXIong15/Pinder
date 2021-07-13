@@ -21,6 +21,14 @@ class Cards extends Component {
   }
 
   // MAKE FUNCTIONS FOR BUTTONS TO PASS
+  likeBtn = (_id) => {
+    console.log("Liked", _id);
+  }
+
+  dislikeBtn = (_id) => {
+    console.log("Dislike", _id);
+  }
+
 
   render() {
     return (
@@ -28,12 +36,16 @@ class Cards extends Component {
         {this.state.allProfiles.map((profile) => {
           return <Card
             key={profile._id}
+            _id={profile._id}
             name={profile.first + " " + profile.last}
             age={profile.age}
             gender={profile.gender}
             location={profile.location[0].city + ", " + profile.location[0].state}
             bio={profile.bio}
             pictures={profile.pictures}
+
+            likeBtn={this.likeBtn}
+            dislikeBtn={this.dislikeBtn}
           />
         })}
       </div>

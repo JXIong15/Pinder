@@ -26,8 +26,8 @@ function Card(props) {
                 {props.bio}
             </p>
             <div className="likes">
-                <button>Like</button>
-                <button>Nah</button>
+                <button onClick={() => props.likeBtn(props._id)}>Like</button>
+                <button onClick={() => props.dislikeBtn(props._id)}>Nah</button>
             </div>
         </div>
     );
