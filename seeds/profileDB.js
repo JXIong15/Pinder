@@ -7,7 +7,8 @@ const profileSeed = [
     {
         _id: ObjectId("0000001fe136c637652883bc"),
         intent: "Friends",
-        name: "SpongeBob SquarePants",
+        first: "SpongeBob",
+        last: "SquarePants",
         age: 22,
         gender: "Male",
         sex: "Heterosexual",
@@ -22,7 +23,8 @@ const profileSeed = [
     {
         _id: ObjectId("00000002f8591e57d818ea77"),
         intent: "Friends",
-        name: "Ash Ketchum",
+        first: "Ash",
+        last: "Ketchum",
         age: 23,
         gender: "Male",
         sex: "Heterosexual",
@@ -35,10 +37,10 @@ const profileSeed = [
         bio: "Certified dog trainer. I love anything having to do with animals!"
     },
     {
-        _id: ObjectId(13),
         _id: ObjectId("00000003f8591e57d818ea78"),
         intent: "Friends",
-        name: "Shaggy Rogers",
+        first: "Shaggy",
+        last: "Rogers",
         age: 21,
         gender: "Male",
         sex: "Heterosexual",
@@ -51,10 +53,10 @@ const profileSeed = [
         bio: "My kind of date is lounging around having a smoke or two and listening to grooooovy music."
     },
     {
-        _id: ObjectId(14),
         _id: ObjectId("00000004f8591e57d818ea79"),
         intent: "Friends",
-        name: "Emily Elizabeth Howard",
+        first: "Emily Elizabeth",
+        last: "Howard",
         age: 19,
         gender: "Female",
         sex: "Heterosexual",
@@ -69,7 +71,8 @@ const profileSeed = [
     {
         _id: ObjectId("00000005f8591e57d818ea7a"),
         intent: "Friends",
-        name: "Kiba Inuzuka",
+        first: "Kiba",
+        last: "Inuzuka",
         age: 28,
         gender: "Male",
         sex: "Heterosexual",
@@ -84,7 +87,8 @@ const profileSeed = [
     {
         _id: ObjectId("00000006f8591e57d818ea7b"),
         intent: "Friends",
-        name: "Janet Smith",
+        first: "Janet",
+        last: "Smith",
         age: 25,
         gender: "Female",
         sex: "Heterosexual",
@@ -99,7 +103,8 @@ const profileSeed = [
     {
         _id: ObjectId("00000007f8591e57d818ea7c"),
         intent: "Friends",
-        name: "Amber Jones",
+        first: "Amber",
+        last: "Jones",
         age: 33,
         gender: "Female",
         sex: "Heterosexual",
@@ -114,7 +119,8 @@ const profileSeed = [
     {
         _id: ObjectId("00000008f8591e57d818ea7d"),
         intent: "Friends",
-        name: "Aang Avatar",
+        first: "Aang",
+        last: "Avatar",
         age: 32,
         gender: "Male",
         sex: "Heterosexual",
@@ -129,7 +135,8 @@ const profileSeed = [
     {
         _id: ObjectId("00000009f8591e57d818ea7e"),
         intent: "Friends",
-        name: "Kim Kardashian",
+        first: "Kim",
+        last: "Kardashian",
         age: 40,
         gender: "Female",
         sex: "Heterosexual",
@@ -144,7 +151,8 @@ const profileSeed = [
     {
         _id: ObjectId("0000000af8591e57d818ea7f"),
         intent: "Friends",
-        name: "Jennifer Aniston",
+        first: "Jennifer",
+        last: "Aniston",
         age: 52,
         gender: "Female",
         sex: "Heterosexual",

@@ -6,7 +6,8 @@ import API from "../utils/API";
 
 class Cards extends Component {
   state = {
-    allProfiles: []
+    allProfiles: [],
+    profileOptions: [] // PROFILES MEETING CRITERIA
   };
 
   componentDidMount() {
@@ -27,7 +28,7 @@ class Cards extends Component {
         {this.state.allProfiles.map((profile) => {
           return <Card
             key={profile._id}
-            name={profile.name}
+            name={profile.first + " " + profile.last}
             age={profile.age}
             gender={profile.gender}
             location={profile.location[0].city + ", " + profile.location[0].state}

@@ -5,9 +5,6 @@ import Review from "./Reviews";
 
 // ADD THIS AFTER CONNECTING TO MONGODB ATLAS
 function Card(props) {
-console.log(props)
-console.log("Card")
-// function Card() {
     return (
         <div className="card">
             <div className="head">
@@ -16,11 +13,12 @@ console.log("Card")
                 <Link to="/reviews" role="link">Review(s)</Link>
 
             </div>
+            {/* MAP THROUGH ARRAY OF PHOTOS */}
             <img alt="picture(s)"></img>
             <div className="demo">
                 <p>{props.age}</p>
                 <p>{props.gender}</p>
-                <p>Location</p>
+                <p>{props.location}</p>
             </div>
             <p className="bio">
                 <span>Bio: </span>
