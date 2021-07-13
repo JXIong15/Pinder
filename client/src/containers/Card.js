@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import Review from "./Reviews";
 
-// ADD THIS AFTER CONNECTING TO MONGODB ATLAS
+// TO-DO: ADD BUTTON FUNCTIONS, RATING, AND REVIEWS
 function Card(props) {
     return (
         <div className="card">
@@ -13,8 +13,9 @@ function Card(props) {
                 <Link to="/reviews" role="link">Review(s)</Link>
 
             </div>
-            {/* MAP THROUGH ARRAY OF PHOTOS */}
-            <img alt="picture(s)"></img>
+            {props.pictures.map(pic => {
+                return <img alt="picture(s)" src={pic}></img>
+            })}
             <div className="demo">
                 <p>{props.age}</p>
                 <p>{props.gender}</p>

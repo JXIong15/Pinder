@@ -16,6 +16,7 @@ const profileSchema = new Schema({
         city: { type: String, required: true },
         state: { type: String, required: true }
     }],
+    pictures: [{ type: String, required: true}],
     bio: String
 })
 

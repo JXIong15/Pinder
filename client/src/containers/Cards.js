@@ -33,6 +33,7 @@ class Cards extends Component {
             gender={profile.gender}
             location={profile.location[0].city + ", " + profile.location[0].state}
             bio={profile.bio}
+            pictures={profile.pictures}
           />
         })}
       </div>
