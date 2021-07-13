@@ -1,77 +1,96 @@
-# Getting Started with Create React App
+# Pinder
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 
 ## Jou To-Do
-* add verifiers to User.js in Models
-* Fix seed data in seedsDB.js
-    * Add ObjectIds
+* delete certain fetches from Likes and Reviews routes
+* add withAuth to all routes
+* Don't allow for ratings to be edited. Delete "PUT" route in Reviews
+* add images to profile model and seed
+* Cloudinary for image upload
 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Table of Contents
+* [Introduction](#introduction)
+* [Functionality](#functionality)
+* [Tasks Completed](#tasks-completed)
+* [Technologies Used](#technologies-used)
+* [Installations](#installations)
+* [Demo](#demo)
+* [Known Issues](#known-issues)
+* [Future Ideas](#future-ideas)
+* [Sources](#sources)
+* [License](#license)
 
-In the project directory, you can run:
 
-### `npm start`
+ ## Introduction
+Pinder allows users to match with others who have the same intent as them. In addition, users can be reviewed by those they've matched with, allowing for more transparency on the app.
+* Deployed App: https://github.com/JXIong15/Pinder
+* GitHub: https://protected-reef-36079.herokuapp.com/
+<p align="center"><img src="./assets/card.png" width="100%" style="border-radius: 10px" stylealt="card carousel"/></p>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Functionality
+* The user can create an account where they will have to fill out a form for their user preferences.
+* After logging in, the user will be matched with other users who have the same intent, sexuality, and location.
+* By swiping `UP OR DOWN?`, the user likes another profile
+* By swiping `UP OR DOWN?`, the user passes on another profile
+* After matching with a profile, the users can message and videochat with each other
+    * the user can review and rate that profile
+* By clicking on a matched profile, the user view that profile's information
+* By clicking on the User's profile, the user can view their profile and make edits
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Tasks Completed
+* Dowloaded necessary NPM packages with `npm install` on the Command Line
+* Created `src` and necessary folders for development
+* Created a server.js file to connect back-end and front-end
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<p align="center"><img src="./assets/" width="100%" style="border-radius: 10px" stylealt=""/></p>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Technologies Used
+* React
+* NavLinks/Routers
+* MongoDB
+* Heroku
+* Insomnia
+* Twilio
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Installations
+* React-Router-Dom
+* React
+* Mongoose
+* Axios
+* Twilio
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Demo
+* App Demo:
+<p align="center"><img src="./assets/demo.gif" style="border-radius: 10px" width="100% height="100%" stylealt="app demo"/></p>
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+## Known Issues
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+## Future Ideas
+* More filtering between users
+* To change reviews, users can contact Pinder staff with evidence and reasoning on appealing reviews
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
+## Sources
+* NPM Packages: https://www.npmjs.com/
+* Heroku: https://www.heroku.com/
+* React: https://reactjs.org/
+* MongoDB Atlas: https://www.mongodb.com/
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
+## License
+Licensed under the [MIT License](LICENSE).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<p align="center"><a href="https://github.com/JXIong15" target="_blank">Jou Xiong<a>, <a href="https://github.com/BrianSales" target="_blank">Brian Sales<a>, <a href="https://github.com/diego773" target="_blank">Diego Villarreal<a>, <a href="https://github.com/seannbannon" target="_blank">Sean Bannon<a></p>
+<p align="center">© 2021 Trilogy, Northwestern Coding Bootcamp</p>

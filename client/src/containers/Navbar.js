@@ -29,6 +29,11 @@ function Navbar(){
       Disabled
     </Nav.Link>
   </Nav.Item>
+  <Nav.Item>
+    <Nav.Link eventKey="disabled" disabled>
+      Contacts
+    </Nav.Link>
+  </Nav.Item>
 </Nav>
     )
 }

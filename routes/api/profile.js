@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const ProfileController = require("../../controllers/Profile");
+const ProfileController = require("../../controllers/ProfileControllers");
 // const withAuth = require('../../utils/auth')
 
 // TO-DO: use withAuth on all funcs
@@ -13,7 +13,7 @@ router.route("/")
 router
   .route("/:id")
   .get(ProfileController.findById)
-  // .put(ProfileController.update)
-  // .delete(ProfileController.remove);
+  .put(ProfileController.update)
+  .delete(ProfileController.remove);
 
 module.exports = router;

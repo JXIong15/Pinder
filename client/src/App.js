@@ -1,11 +1,10 @@
-
-import './index.css';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Login from './containers/Login';
 import "./index.css";
+import Login from './containers/Login';
 import Forms from './containers/Forms';
 import Navbar from './containers/Navbar'
 import Matches from './containers/Matches'
+
 
 
 
