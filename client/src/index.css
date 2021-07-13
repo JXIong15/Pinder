@@ -4,7 +4,6 @@
   display: flex;
 }
 
-
 .loginCard {
   width: 30vw;
   height: 80vh;
@@ -32,3 +31,15 @@
 
 
 /* form page css */
+.formContainer{
+  display: flex;
+}
+
+.formsCard{
+  width: 30vw;
+  height: 80vh;
+  margin-top: 20vh;
+  margin: 0 auto;
+  float: none;
+
+}

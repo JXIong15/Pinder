@@ -6,12 +6,24 @@ import {Link} from 'react-router-dom';
 function Navbar(){
     return(
 <Nav variant="tabs" defaultActiveKey="/home">
-  <Nav.Item>
-    <Nav.Link href="/home">Active</Nav.Link>
+
+<Nav.Item>
+    <Nav.Link href="/home">Home</Nav.Link>
   </Nav.Item>
+
+
   <Nav.Item>
-    <Link to="/forms">Signup</Link>
+    <Nav.Link href="/login">Login</Nav.Link>
   </Nav.Item>
+
+  <Nav.Item>
+    <Nav.Link href="/forms">Signup</Nav.Link>
+  </Nav.Item>
+
+  <Nav.Item>
+    <Nav.Link href="/matches">Matches</Nav.Link>
+  </Nav.Item>
+
   <Nav.Item>
     <Nav.Link eventKey="disabled" disabled>
       Disabled
