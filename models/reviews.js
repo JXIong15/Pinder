@@ -7,7 +7,7 @@ const reviewsSchema = new Schema({
         ref: "User"
     },
     reviews: [{
-        reviewing: {
+        reviewer: {
             type: Schema.Types.ObjectId,
             ref: "User"
         },

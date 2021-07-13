@@ -67,8 +67,10 @@ class Cards extends Component {
             bio={profile.bio}
             pictures={profile.pictures}
 
-            likeBtn={this.likeBtn}
-            dislikeBtn={this.dislikeBtn}
+            btn1={this.likeBtn}
+            btn2={this.dislikeBtn}
+            label1="Like"
+            label2="Dislike"
           />
         })}
       </div>

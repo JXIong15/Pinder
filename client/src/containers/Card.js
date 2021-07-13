@@ -13,6 +13,7 @@ function Card(props) {
                 <Link to="/reviews" role="link">Review(s)</Link>
 
             </div>
+            {/* CAN MAKE A SEPARATE FILE FOR DIEGO'S CAROUSEL */}
             {props.pictures.map(pic => {
                 return <img alt="picture(s)" src={pic}></img>
             })}
@@ -26,8 +27,8 @@ function Card(props) {
                 {props.bio}
             </p>
             <div className="likes">
-                <button onClick={() => props.likeBtn(props._id)}>Like</button>
-                <button onClick={() => props.dislikeBtn(props._id)}>Nah</button>
+                <button onClick={() => props.btn1(props._id)}>{props.label1}</button>
+                <button onClick={() => props.btn2(props._id)}>{props.label2}</button>
             </div>
         </div>
     );

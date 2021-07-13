@@ -2,12 +2,9 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import "./index.css";
 import Login from './containers/Login';
 import Forms from './containers/Forms';
-import Navbar from './containers/Navbar'
-import Matches from './containers/Matches'
-
-
-
-
+import Navbar from './containers/Navbar';
+import Matches from './containers/Matches';
+import Messages from './containers/Messages';
 import Cards from "./containers/Cards";
 import Review from "./containers/Reviews";
 import VideoChat from './containers/VideoChat';
@@ -15,9 +12,7 @@ import VideoChat from './containers/VideoChat';
 
 
 function App() {
-  
   return (
-
     <Router>
       <div>
         <Navbar/>
@@ -26,8 +21,7 @@ function App() {
         </Switch>
         </div>
 
-      
-
+    
         <div>
           <Switch>
             {/* If !logged-in */}
@@ -37,7 +31,7 @@ function App() {
             {/* // Jou test  */}
             {/* <Card /> */}
             <Route exact path="/" component={Cards} />
-
+            <Route exact path="/message" component={Messages} />
             {/* <Cards /> */}
             <Route exact path="/reviews" component={Review} />
             {/* End Jou test */}
