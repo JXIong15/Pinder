@@ -1,15 +1,42 @@
 // after connection to MongoDB Atlas, put data in an array.
 // map through array into card.js
-import React from "react";
-import Card from "./Card"
+import React, { Component } from "react";
+import Card from "./Card";
+import API from "../utils/API";
 
-function Cards() {
+class Cards extends Component {
+  state = {
+    allProfiles: []
+  };
+
+  componentDidMount() {
+    API.getAllProfiles()
+      .then(res => {
+        this.setState({ allProfiles: res.data })
+      })
+      .catch(err => {
+        console.log(err);
+      })
+  }
+
+  // MAKE FUNCTIONS FOR BUTTONS TO PASS
+
+  render() {
     return (
       <div>
-        <Card />
-  
+        {this.state.allProfiles.map((profile) => {
+          return <Card
+            key={profile._id}
+            name={profile.name}
+            age={profile.age}
+            gender={profile.gender}
+            location={profile.location[0].city + ", " + profile.location[0].state}
+            bio={profile.bio}
+          />
+        })}
       </div>
     );
   }
-  
-  export default Cards;
+}
+
+export default Cards;
