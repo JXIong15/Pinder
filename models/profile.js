@@ -7,7 +7,8 @@ const profileSchema = new Schema({
         ref: "User"
     },
     intent: { type: String, required: true },
-    name: { type: String, required: true },
+    first: { type: String, required: true },
+    last: { type: String, required: true },
     age: { type: Number, required: true },
     gender: { type: String, required: true },
     sex: { type: String, required: true },
@@ -15,6 +16,7 @@ const profileSchema = new Schema({
         city: { type: String, required: true },
         state: { type: String, required: true }
     }],
+    pictures: [{ type: String, required: true}],
     bio: String
 })
 
