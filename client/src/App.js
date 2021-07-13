@@ -5,6 +5,7 @@ import Login from './containers/Login';
 import "./index.css";
 import Forms from './containers/Forms';
 import Navbar from './containers/Navbar'
+import Matches from './containers/Matches'
 
 
 
@@ -48,6 +49,9 @@ function App() {
 
 
             <Route exact path="/forms" component={Forms} />
+
+            <Route exact path="/matches" component={Matches} />
+
 
           </Switch>
         </div>
