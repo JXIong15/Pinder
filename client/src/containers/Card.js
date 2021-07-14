@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from 'react-router-dom';
-
-import Review from "./Reviews";
+import Reviews from "./Reviews";
 
 // TO-DO: ADD RATING, AND REVIEWS
 function Card(props) {
@@ -10,7 +9,14 @@ function Card(props) {
             <div className="head">
                 <h1>{props.name}</h1>
                 <h2>Rating: 5</h2>
-                <Link to="/reviews" role="link">Review(s)</Link>
+
+                {/* <Route path="/reviews/:id" component={Reviews} /> */}
+                {/* <Link to={{pathname: "reviews/" + props._id, state: {id: props._id}}} >Review(s)</Link> */}
+                {/* <Link to={"reviews/" + props._id} role="link" params={ id=props._id }>Review(s)</Link> */}
+                <Link to={{ pathname: "reviews/:id", id: props._id }}>Create Idea</Link>
+
+
+
 
             </div>
             {/* CAN MAKE A SEPARATE FILE FOR DIEGO'S CAROUSEL */}
