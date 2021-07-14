@@ -3,6 +3,7 @@
 
 
 ## Jou To-Do
+* Is there a way to pull data from parent tables?
 * delete certain fetches from Likes and Reviews routes
 * add withAuth to all routes
 * Don't allow for ratings to be edited. Delete "PUT" route in Reviews

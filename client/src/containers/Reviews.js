@@ -2,27 +2,18 @@ import React, { Component } from "react";
 import API from "../utils/API";
 
 
-// ADD THIS AFTER CONNECTING TO MONGODB ATLAS
-// function Review(props) {
-// console.log(props)
 class Review extends Component {
-// function Review(props) {
-    // const {id} = props.match.params;
-    // let reviewsArr = [];
-
     state = {
         reviewsArr: [],
-        id: this.props.match.params.id
+        id: this.props.match.params.id,
+        ratingArr: []
     }
 
-
-
     componentDidMount() {
-        console.log( this.state.id)
         API.getReviews(this.state.id)
             .then(res => {
                 this.setState({reviewsArr: res.data.reviews});
-                // console.log(this.state.reviewsArr);
+                console.log(res)
             })
             .catch(err => {
                 console.log(err);
@@ -32,10 +23,12 @@ class Review extends Component {
     render() {
     return (
         <div>
-            <h1>REVIEWS</h1>
-            <p>nkjfkjds df cskfjsdkfhsfhsu wueh kajaslfjdsf dsfhdsjf sdhfeijbdhsf</p>
+            <h1>Reviews for NAME</h1>
 
             {this.state.reviewsArr.map(review => {
+                // this.setState({ratingArr: this.state.ratingArr.concat(review.rating)});
+                // console.log(this.state.ratingArr);
+                // console.log(review.rating)
                 return (
                     <div>
                         <h3>{review.reviewer}</h3>
