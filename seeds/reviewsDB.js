@@ -5,6 +5,7 @@ const { Types: { ObjectId } } = mongoose;
 const reviewSeed = [
     {
         _id: ObjectId("60ef8fcaebde7aca7f06abc0"),
+        profile: ObjectId("60ef88c621aa76c7d39b9460"),
         reviews: [
             {
                 reviewer: ObjectId("60ef88c621aa76c7d39b9463"),
@@ -34,6 +35,7 @@ const reviewSeed = [
     },
     {
         _id: ObjectId("60ef8fcaebde7aca7f06abc1"),
+        profile: ObjectId("60ef88c621aa76c7d39b9461"),
         reviews: [
             {
                 reviewer: ObjectId("60ef88c621aa76c7d39b9469"),
@@ -57,6 +59,7 @@ const reviewSeed = [
     },
     {
         _id: ObjectId("60ef8fcaebde7aca7f06abc2"),
+        profile: ObjectId("60ef88c621aa76c7d39b9462"),
         reviews: [
             {
                 reviewer: ObjectId("60ef88c621aa76c7d39b9465"),
@@ -74,6 +77,7 @@ const reviewSeed = [
     },
     {
         _id: ObjectId("60ef8fcaebde7aca7f06abc3"),
+        profile: ObjectId("60ef88c621aa76c7d39b9463"),
         reviews: [
             {
                 reviewer: ObjectId("60ef88c621aa76c7d39b9460"),
@@ -97,6 +101,7 @@ const reviewSeed = [
     },
     {
         _id: ObjectId("60ef8fcaebde7aca7f06abc4"),
+        profile: ObjectId("60ef88c621aa76c7d39b9464"),
         reviews: [
             {
                 reviewer: ObjectId("60ef88c621aa76c7d39b9469"),
@@ -114,6 +119,7 @@ const reviewSeed = [
     },
     {
         _id: ObjectId("60ef8fcaebde7aca7f06abc5"),
+        profile: ObjectId("60ef88c621aa76c7d39b9465"),
         reviews: [
             {
                 reviewer: ObjectId("60ef88c621aa76c7d39b9467"),
@@ -125,10 +131,12 @@ const reviewSeed = [
     },
     {
         _id: ObjectId("60ef8fcaebde7aca7f06abc6"),
+        profile: ObjectId("60ef88c621aa76c7d39b9466"),
         reviews: []
     },
     {
         _id: ObjectId("60ef8fcaebde7aca7f06abc7"),
+        profile: ObjectId("60ef88c621aa76c7d39b9467"),
         reviews: [
             {
                 reviewer: ObjectId("60ef88c621aa76c7d39b9465"),
@@ -140,6 +148,7 @@ const reviewSeed = [
     },
     {
         _id: ObjectId("60ef8fcaebde7aca7f06abc8"),
+        profile: ObjectId("60ef88c621aa76c7d39b9468"),
         reviews: [
             {
                 reviewer: ObjectId("60ef88c621aa76c7d39b9460"),
@@ -163,6 +172,7 @@ const reviewSeed = [
     },
     {
         _id: ObjectId("60ef8fcaebde7aca7f06abc9"),
+        profile: ObjectId("60ef88c621aa76c7d39b9469"),
         reviews: [
             {
                 reviewer: ObjectId("60ef88c621aa76c7d39b9461"),

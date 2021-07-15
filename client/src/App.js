@@ -6,6 +6,7 @@ import Navbar from './containers/Navbar';
 import Matches from './containers/Matches';
 import Messages from './containers/Messages';
 import Cards from "./containers/Cards";
+import Profile from "./containers/Profile";
 import Reviews from "./containers/Reviews";
 import VideoChat from './containers/VideoChat';
 
@@ -34,6 +35,7 @@ function App() {
             <Route exact path="/message" component={Messages} />
             {/* <Cards /> */}
             <Route exact path="/reviews/:id" component={Reviews} />
+            <Route exact path="/profile/:id" component={Profile} />
             {/* End Jou test */}
 
             <Route exact path="/test" component={VideoChat} />
