@@ -36,7 +36,7 @@ function App() {
             <Route exact path="/reviews" component={Review} />
             {/* End Jou test */}
 
-            <Route exact path="/test" component={VideoChat} />
+            <Route exact path="/videoroom" component={VideoChat} />
 
             <Route exact path="/login" component={Login} />
 
@@ -48,6 +48,9 @@ function App() {
 
           </Switch>
         </div>
+
+        
+        
 
 
 
