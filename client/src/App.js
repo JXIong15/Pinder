@@ -9,19 +9,16 @@ import Cards from "./containers/Cards";
 import Profile from "./containers/Profile";
 import Reviews from "./containers/Reviews";
 import VideoChat from './containers/VideoChat';
+import React, {useState} from 'react';
 
 
 
-function App() {
+function App(props) {
+  const [user, setLogin] = useState()
   return (
     <Router>
-      <div>
-        <Navbar/>
-        <Switch>
-          {/* <Route exact path="/"component={login}></Route>   */}
-        </Switch>
-        </div>
-
+        <Navbar setLogin = {setLogin} user = {user} {...props}/>
+        
     
         <div>
           <Switch>

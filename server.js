@@ -9,6 +9,9 @@ const routes = require("./routes");
 const app = express();
 const PORT = process.env.PORT || 3001;
 
+const session = require("express-session");
+const passport = require("./passport");
+
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -16,6 +19,13 @@ app.use(express.json());
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
+
+app.use(
+  session({ secret: "keyboard cat", resave: true, saveUninitialized: true })
+);
+app.use(passport.initialize());
+app.use(passport.session());
+
 
   const sendTokenResponse = (token, res) => {
   res.set('Content-Type', 'application/json');
@@ -51,7 +61,7 @@ app.post('/video/token', (req, res) => {
 app.use(routes);
 
 // Connect to the Mongo DB
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/reactuserlist", {useUnifiedTopology: true, useFindAndModify: false, useNewUrlParser: true});
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/reactuserlist", { useUnifiedTopology: true, useFindAndModify: false, useNewUrlParser: true, useCreateIndex: true});
 
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
