@@ -7,7 +7,8 @@ import API from "../utils/API";
 class Cards extends Component {
   state = {
     allProfiles: [],
-    profileOptions: [] // PROFILES MEETING CRITERIA
+    profileOptions: [], // PROFILES MEETING CRITERIA
+    likesArr:[]
   };
 
   componentDidMount() {
@@ -27,7 +28,6 @@ class Cards extends Component {
       this.state.allProfiles.map((profile) => {
         // IF INTENT AND LOCATION ARE THE SAME
         // SEXUATLITY
-        console.log("sort", profile.likes)
         return {
             key: profile._id,
             _id: profile._id,
@@ -40,18 +40,17 @@ class Cards extends Component {
             bio: profile.bio,
             pictures: profile.pictures,
             reviews: profile.reviews,
-            likesID: profile.likes
+            likesID: profile.likes._id
         }
       })
     })
   }
 
-  // MAKE FUNCTIONS FOR BUTTONS TO PASS
-  likeBtn = (_id) => {
-    console.log("Liked", _id);
-    API.getLikes(_id)
+  likeBtn = (likesID, _id) => {
+    API.getLikes(likesID)
       .then(res => {
-        console.log(res)
+        this.setState({likesArr: res.data.likes.concat(_id)});
+        console.log(this.state.likesArr)
       })
       .catch(err => {
         console.log(err);
@@ -76,7 +75,7 @@ class Cards extends Component {
             bio={profile.bio}
             pictures={profile.pictures}
             reviews={profile.reviews}
-            likesID={profile.likes}
+            likesID={profile.likesID}
 
             btn1={this.likeBtn}
             btn2={this.dislikeBtn}
