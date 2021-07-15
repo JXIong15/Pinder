@@ -9,6 +9,9 @@ const routes = require("./routes");
 const app = express();
 const PORT = process.env.PORT || 3001;
 
+const session = require("express-session");
+const passport = require("./passport");
+
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -16,6 +19,13 @@ app.use(express.json());
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
+
+app.use(
+  session({ secret: "keyboard cat", resave: true, saveUninitialized: true })
+);
+app.use(passport.initialize());
+app.use(passport.session());
+
 
   const sendTokenResponse = (token, res) => {
   res.set('Content-Type', 'application/json');
