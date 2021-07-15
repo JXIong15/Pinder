@@ -51,7 +51,7 @@ export default {
 
 
   getReviews: function(id) {
-    return axios.get("/api/reviews" + id); 
+    return axios.get("/api/reviews/" + id); 
   },
   updateReviews: function(id) {
     return axios.put("/api/reviews/" + id)

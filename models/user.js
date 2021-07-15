@@ -12,6 +12,17 @@ const userSchema = new mongoose.Schema({
   password: {
     type: String,
     required: true,
+
+    validate: {
+      validator: validator.isStrongPassword,
+      message: 'Not a strong password: min 8 char, at least 1 lower and upper case letter, at least 1 number and symbol'
+    },
+  },
+  profile: {
+    type: Schema.Types.ObjectId,
+    ref: "Profile"
+=======
+
   }
 });
 
