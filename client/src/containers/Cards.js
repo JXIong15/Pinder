@@ -8,7 +8,8 @@ class Cards extends Component {
   state = {
     allProfiles: [],
     profileOptions: [], // PROFILES MEETING CRITERIA
-    likesArr:[]
+    likesArr:[],
+    dislikeArr: []
   };
 
   componentDidMount() {
@@ -54,7 +55,7 @@ class Cards extends Component {
         }
         else {
           this.setState({likesArr: res.data.likes.concat(_id)});
-          alert("User liked")
+          alert("User liked");
           // updates user's likes
           API.updateLikes(likesID, this.state.likesArr)
             .then(res2 => {}).catch(err => {console.log(err)})
@@ -65,8 +66,33 @@ class Cards extends Component {
       })
   }
 
-  dislikeBtn = (_id) => {
-    console.log("Dislike", _id);
+  dislikeBtn = (likesID, _id) => {
+    console.log("Dislike", likesID);
+    API.getLikes(likesID)
+      .then(res => {
+        if(res.data.likes.includes(_id)) {
+          alert("User is already liked");
+          let arr = [];
+          for (let i = 0; i < res.data.likes.length; i++) {
+            if(res.data.likes[i] !== _id) {
+              arr.push(res.data.likes[i]);
+            }
+          }
+          this.setState({dislikeArr: arr});
+          // updates user's likes
+          API.updateLikes(likesID, this.state.dislikeArr)
+            .then(res2 => {}).catch(err => {console.log(err)})
+          alert("Dislike user");
+        }
+        else {
+          // skips user
+          // carousel moves
+          console.log("User not in likes")
+        }
+      })
+      .catch(err => {
+        console.log(err);
+      })
   }
 
   render() {
