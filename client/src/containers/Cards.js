@@ -37,7 +37,8 @@ class Cards extends Component {
             city: profile.location[0].city,
             state: profile.location[0].state,
             bio: profile.bio,
-            pictures: profile.pictures
+            pictures: profile.pictures,
+            reviews: profile.reviews
         }
       })
     })
@@ -65,6 +66,7 @@ class Cards extends Component {
             location={profile.city + ", " + profile.state}
             bio={profile.bio}
             pictures={profile.pictures}
+            reviews={profile.reviews}
 
             btn1={this.likeBtn}
             btn2={this.dislikeBtn}

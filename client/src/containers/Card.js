@@ -3,13 +3,12 @@ import { Link } from 'react-router-dom';
 
 // TO-DO: ADD RATING, AND REVIEWS
 function Card(props) {
-
     return (
         <div className="card">
             <div className="head">
                 <h1>{props.name}</h1>
                 <h2>Rating: 5</h2>
-                <Link to={{ pathname: `/reviews/${props._id}` }}>Review(s)</Link>
+                <Link to={{ pathname: `/reviews/${props.reviews._id}` }}>Review(s)</Link>
             </div>
             {/* CAN MAKE A SEPARATE FILE FOR DIEGO'S CAROUSEL */}
             {props.pictures.map(pic => {

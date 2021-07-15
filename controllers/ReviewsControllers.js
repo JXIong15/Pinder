@@ -3,7 +3,7 @@ const db = require("../models");
 module.exports = {
     findAll: function (req, res) {
         db.Reviews
-            .find(req.query).populate({path:"user", model:"User"})
+            .find(req.query).populate({path:"reviewer", model:"Profile"})
             .sort({ date: -1 })
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
@@ -11,7 +11,7 @@ module.exports = {
 
     findById: function (req, res) {
         db.Reviews
-            .findById(req.params.id).populate({path:"user", model:"User"})
+            .findById(req.params.id).populate({path:"reviewer", model:"Profile"})
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
     },

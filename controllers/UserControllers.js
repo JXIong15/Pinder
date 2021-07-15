@@ -5,8 +5,6 @@ module.exports = {
         db.User
             .find(req.query)
               .populate({path:"profile", model:"Profile"})
-              .populate({path:"likes", model:"Likes"})
-              .populate({path:"reviews", model:"Reviews"})
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
     },

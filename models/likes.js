@@ -2,10 +2,10 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const likesSchema = new Schema({
-        {
-            type: Schema.Types.ObjectId,
-            ref: "Profile"
-        }
+    likes: [{
+        type: Schema.Types.ObjectId,
+        ref: "Profile"
+    }]
 })
 
 const Likes = mongoose.model("Likes", likesSchema);

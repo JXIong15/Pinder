@@ -3,14 +3,14 @@ const db = require("../models");
 module.exports = {
     findAll: function (req, res) {
         db.Likes
-            .find(req.query).populate({path:"profile", model:"Profile"})
+            .find(req.query).populate({path:"like", model:"Profile"})
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
     },
 
     findById: function (req, res) {
         db.Likes
-            .findById(req.params.id).populate({path:"profile", model:"Profile"})
+            .findById(req.params.id).populate({path:"like", model:"Profile"})
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
     },

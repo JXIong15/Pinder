@@ -14,14 +14,14 @@ const profileSchema = new Schema({
     }],
     pictures: [{ type: String, required: true }],
     bio: String,
-    likes: [{
+    likes: {
         type: Schema.Types.ObjectId,
         ref: "Likes"
-    }],
-    reviews: [{
+    },
+    reviews: {
         type: Schema.Types.ObjectId,
         ref: "Reviews"
-    }]
+    }
 })
 
 const Profile = mongoose.model("Profile", profileSchema);

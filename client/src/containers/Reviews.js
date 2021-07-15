@@ -10,10 +10,11 @@ class Review extends Component {
     }
 
     componentDidMount() {
+        console.log(this.state.id)
         API.getReviews(this.state.id)
             .then(res => {
                 this.setState({reviewsArr: res.data.reviews});
-                console.log(res)
+                console.log("review",res)
             })
             .catch(err => {
                 console.log(err);
