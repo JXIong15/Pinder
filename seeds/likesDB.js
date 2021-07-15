@@ -4,24 +4,24 @@ const { Types: { ObjectId } } = mongoose;
 
 const likesSeed = [
     {
-        _id: ObjectId("0000001fe136c637652883bc"),
+        _id: ObjectId("60ef8fcaebde7aca7f0610ed"),
         likes: [
-            ObjectId("00000009f8591e57d818ea7e")
+            ObjectId("60ef88c621aa76c7d39b9460")
         ]
     },
     {
-        _id: ObjectId("00000002f8591e57d818ea77"),
+        user: ObjectId("00000002f8591e57d818ea77"),
         likes: [
             ObjectId("00000004f8591e57d818ea79"),
             ObjectId("00000009f8591e57d818ea7e")
         ]
     },
     {
-        _id: ObjectId("00000003f8591e57d818ea78"),
+        user: ObjectId("00000003f8591e57d818ea78"),
         likes: []
     },
     {
-        _id: ObjectId("00000004f8591e57d818ea79"),
+        user: ObjectId("00000004f8591e57d818ea79"),
         likes: [
             ObjectId("0000001fe136c637652883bc"),
             ObjectId("00000002f8591e57d818ea77"),
@@ -29,7 +29,7 @@ const likesSeed = [
         ]
     },
     {
-        _id: ObjectId("00000005f8591e57d818ea7a"),
+        user: ObjectId("00000005f8591e57d818ea7a"),
         likes: [
             ObjectId("00000004f8591e57d818ea79"),
             ObjectId("00000009f8591e57d818ea7e"),
@@ -37,7 +37,7 @@ const likesSeed = [
         ]
     },
     {
-        _id: ObjectId("00000006f8591e57d818ea7b"),
+        user: ObjectId("00000006f8591e57d818ea7b"),
         likes: [
             ObjectId("0000001fe136c637652883bc"),
             ObjectId("00000002f8591e57d818ea77"),
@@ -45,13 +45,13 @@ const likesSeed = [
         ]
     },
     {
-        _id: ObjectId("00000007f8591e57d818ea7c"),
+        user: ObjectId("00000007f8591e57d818ea7c"),
         likes: [
             ObjectId("0000001fe136c637652883bc")
         ]
     },
     {
-        _id: ObjectId("00000008f8591e57d818ea7d"),
+        user: ObjectId("00000008f8591e57d818ea7d"),
         likes: [
             ObjectId("00000004f8591e57d818ea79"),
             ObjectId("00000009f8591e57d818ea7e"),
@@ -59,11 +59,11 @@ const likesSeed = [
         ]
     },
     {
-        _id: ObjectId("00000009f8591e57d818ea7e"),
+        user: ObjectId("00000009f8591e57d818ea7e"),
         likes: []
     },
     {
-        _id: ObjectId("0000000af8591e57d818ea7f"),
+        user: ObjectId("0000000af8591e57d818ea7f"),
         likes: [
             ObjectId("00000002f8591e57d818ea77"),
             ObjectId("00000003f8591e57d818ea78")

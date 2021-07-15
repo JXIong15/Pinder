@@ -2,10 +2,6 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const profileSchema = new Schema({
-    _id: {
-        type: Schema.Types.ObjectId,
-        ref: "User"
-    },
     intent: { type: String, required: true },
     first: { type: String, required: true },
     last: { type: String, required: true },
@@ -16,8 +12,16 @@ const profileSchema = new Schema({
         city: { type: String, required: true },
         state: { type: String, required: true }
     }],
-    pictures: [{ type: String, required: true}],
-    bio: String
+    pictures: [{ type: String, required: true }],
+    bio: String,
+    likes: [{
+        type: Schema.Types.ObjectId,
+        ref: "Likes"
+    }],
+    reviews: [{
+        type: Schema.Types.ObjectId,
+        ref: "Reviews"
+    }]
 })
 
 const Profile = mongoose.model("Profile", profileSchema);

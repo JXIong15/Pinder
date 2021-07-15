@@ -20,6 +20,13 @@ class Review extends Component {
             })
     }
 
+
+    getName = _id => {
+        
+
+    };
+
+
     render() {
     return (
         <div>
@@ -29,9 +36,12 @@ class Review extends Component {
                 // this.setState({ratingArr: this.state.ratingArr.concat(review.rating)});
                 // console.log(this.state.ratingArr);
                 // console.log(review.rating)
+                let reviewer = this.getName(review.reviewer)
+
+
                 return (
                     <div>
-                        <h3>{review.reviewer}</h3>
+                        <h3>{reviewer}</h3>
                         <h3>{review.title}</h3>
                         <p>{review.body}</p>
                     </div>
