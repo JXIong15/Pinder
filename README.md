@@ -3,6 +3,7 @@
 
 
 ## Jou To-Do
+* Is there a way to pull data from parent tables?
 * delete certain fetches from Likes and Reviews routes
 * add withAuth to all routes
 * Don't allow for ratings to be edited. Delete "PUT" route in Reviews
@@ -80,6 +81,7 @@ Pinder allows users to match with others who have the same intent as them. In ad
 ## Future Ideas
 * More filtering between users
 * To change reviews, users can contact Pinder staff with evidence and reasoning on appealing reviews
+* more data on profile, especially profile views
 
 
 ## Sources

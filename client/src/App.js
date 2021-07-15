@@ -6,21 +6,19 @@ import Navbar from './containers/Navbar';
 import Matches from './containers/Matches';
 import Messages from './containers/Messages';
 import Cards from "./containers/Cards";
-import Review from "./containers/Reviews";
+import Profile from "./containers/Profile";
+import Reviews from "./containers/Reviews";
 import VideoChat from './containers/VideoChat';
+import React, {useState} from 'react';
 
 
 
-function App() {
+function App(props) {
+  const [user, setLogin] = useState()
   return (
     <Router>
-      <div>
-        <Navbar/>
-        <Switch>
-          {/* <Route exact path="/"component={login}></Route>   */}
-        </Switch>
-        </div>
-
+        <Navbar setLogin = {setLogin} user = {user} {...props}/>
+        
     
         <div>
           <Switch>
@@ -33,7 +31,8 @@ function App() {
             <Route exact path="/" component={Cards} />
             <Route exact path="/message" component={Messages} />
             {/* <Cards /> */}
-            <Route exact path="/reviews" component={Review} />
+            <Route exact path="/reviews/:id" component={Reviews} />
+            <Route exact path="/profile/:id" component={Profile} />
             {/* End Jou test */}
 
             <Route exact path="/test" component={VideoChat} />

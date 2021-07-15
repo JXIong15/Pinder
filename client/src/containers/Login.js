@@ -1,22 +1,41 @@
-import React, {useState} from "react";
+import React, {useRef, useState} from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button"
 import Card from "react-bootstrap/Card"
 import Container from "react-bootstrap/Container"
+import { useHistory, Link } from "react-router-dom";
+import axios from "axios";
 
 // import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
-function Login() {
+
+function Login(props) {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
-    function validateForm() {
-        return email.length > 0 && password.length > 0;
-    }
 
-    function handleSubmit(event){
+
+
+  let email = useRef()
+  let password = useRef()
+  let history = useHistory()
+
+    const handleSubmit = (event) => {
         event.preventDefault();
-        console.log(email, password)
+        let currentUser = {
+          email: email.current.value,
+          password: password.current.value,
+        }
+        console.log(currentUser)
+        axios
+        .post("/login", currentUser)
+        .then((data) => {
+          props.setLogin(data.data)
+          history.push("/matches")
+
+        }).catch((err) => {
+          console.log(err)
+        })
     }
 
     return (
@@ -29,19 +48,17 @@ function Login() {
           <Form.Control
             autoFocus
             type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            ref = {email}
           />
         </Form.Group>
         <Form.Group className = "loginGroup" size="lg" controlId="password">
           <Form.Label className = "formLabel">Password</Form.Label>
           <Form.Control
             type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            ref = {password}
           />
         </Form.Group>
-        <Button className = "loginBtn" block type="submit" disabled={!validateForm()}>
+        <Button className = "loginBtn" block type="submit">
           Login
         </Button>
       </Form>
