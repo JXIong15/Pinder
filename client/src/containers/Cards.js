@@ -49,8 +49,16 @@ class Cards extends Component {
   likeBtn = (likesID, _id) => {
     API.getLikes(likesID)
       .then(res => {
-        this.setState({likesArr: res.data.likes.concat(_id)});
-        console.log(this.state.likesArr)
+        if(res.data.likes.includes(_id)) {
+          alert("User is already liked")
+        }
+        else {
+          this.setState({likesArr: res.data.likes.concat(_id)});
+          alert("User liked")
+          // updates user's likes
+          API.updateLikes(likesID, this.state.likesArr)
+            .then(res2 => {}).catch(err => {console.log(err)})
+        }
       })
       .catch(err => {
         console.log(err);

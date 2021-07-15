@@ -42,8 +42,8 @@ export default {
   getLikes: function(id) {
     return axios.get("/api/likes/" + id); 
   },
-  updateLikes: function(id) {
-    return axios.put("/api/likes/" + id)
+  updateLikes: function(id, likes) {
+    return axios.put("/api/likes/" + id, {likes})
   },
   deleteLikes: function(id) {
     return axios.delete("/api/likes/" + id); // IF USER CASCADES, CAN DELETE THIS FUNC
