@@ -6,7 +6,7 @@ import Container from "react-bootstrap/Container"
 
 // import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
-function Login(){
+function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
@@ -47,7 +47,7 @@ function Login(){
       </Form>
       </Card>
       </Container>
-        );
+  );
     
 }
 
