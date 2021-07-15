@@ -40,7 +40,7 @@ export default {
 
 
   getLikes: function(id) {
-    return axios.get("/api/likes" + id); 
+    return axios.get("/api/likes/" + id); 
   },
   updateLikes: function(id) {
     return axios.put("/api/likes/" + id)

@@ -27,6 +27,7 @@ class Cards extends Component {
       this.state.allProfiles.map((profile) => {
         // IF INTENT AND LOCATION ARE THE SAME
         // SEXUATLITY
+        console.log("sort", profile.likes)
         return {
             key: profile._id,
             _id: profile._id,
@@ -38,7 +39,8 @@ class Cards extends Component {
             state: profile.location[0].state,
             bio: profile.bio,
             pictures: profile.pictures,
-            reviews: profile.reviews
+            reviews: profile.reviews,
+            likesID: profile.likes
         }
       })
     })
@@ -47,6 +49,13 @@ class Cards extends Component {
   // MAKE FUNCTIONS FOR BUTTONS TO PASS
   likeBtn = (_id) => {
     console.log("Liked", _id);
+    API.getLikes(_id)
+      .then(res => {
+        console.log(res)
+      })
+      .catch(err => {
+        console.log(err);
+      })
   }
 
   dislikeBtn = (_id) => {
@@ -67,6 +76,7 @@ class Cards extends Component {
             bio={profile.bio}
             pictures={profile.pictures}
             reviews={profile.reviews}
+            likesID={profile.likes}
 
             btn1={this.likeBtn}
             btn2={this.dislikeBtn}
