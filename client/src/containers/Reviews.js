@@ -1,4 +1,3 @@
-
 import React, { Component } from "react";
 import API from "../utils/API";
 import { Link } from 'react-router-dom';
@@ -77,29 +76,30 @@ class Review extends Component {
             </div>
         );
     }
-=======
-import React, {useRef, useState} from "react";
-import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button"
-import Card from "react-bootstrap/Card"
-import Container from "react-bootstrap/Container"
-import { useHistory, Link } from "react-router-dom";
-import axios from "axios";
+
+
+// import React, {useRef, useState} from "react";
+// import Form from "react-bootstrap/Form";
+// import Button from "react-bootstrap/Button"
+// import Card from "react-bootstrap/Card"
+// import Container from "react-bootstrap/Container"
+// import { useHistory, Link } from "react-router-dom";
+// import axios from "axios";
 
 
 
-// ADD THIS AFTER CONNECTING TO MONGODB ATLAS
-// function Review(props) {
-// console.log(props)
-function Review() {
+// // ADD THIS AFTER CONNECTING TO MONGODB ATLAS
+// // function Review(props) {
+// // console.log(props)
+// function Review() {
     
-    return (
-        <div>
-            <h1>REVIEWS</h1>
-            <p>nkjfkjds df cskfjsdkfhsfhsu wueh kajaslfjdsf dsfhdsjf sdhfeijbdhsf</p>
+//     return (
+//         <div>
+//             <h1>REVIEWS</h1>
+//             <p>nkjfkjds df cskfjsdkfhsfhsu wueh kajaslfjdsf dsfhdsjf sdhfeijbdhsf</p>
         
-        </div>
-    );
+//         </div>
+//     );
 
 }
 

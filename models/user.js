@@ -1,7 +1,9 @@
 const mongoose = require("mongoose");
 const bcrypt = require ("bcrypt");
 mongoose.promise = Promise;
-const {String} = mongoose.Schema.Types;
+// const {String} = mongoose.Schema.Types;
+const validator = require('validator')
+const Schema = mongoose.Schema;
 
 const userSchema = new mongoose.Schema({
   email: {
@@ -21,8 +23,6 @@ const userSchema = new mongoose.Schema({
   profile: {
     type: Schema.Types.ObjectId,
     ref: "Profile"
-=======
-
   }
 });
 
