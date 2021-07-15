@@ -7,7 +7,9 @@ import API from "../utils/API";
 class Cards extends Component {
   state = {
     allProfiles: [],
-    profileOptions: [] // PROFILES MEETING CRITERIA
+    profileOptions: [], // PROFILES MEETING CRITERIA
+    likesArr:[],
+    dislikeArr: []
   };
 
   componentDidMount() {
@@ -38,19 +40,59 @@ class Cards extends Component {
             state: profile.location[0].state,
             bio: profile.bio,
             pictures: profile.pictures,
-            reviews: profile.reviews
+            reviews: profile.reviews,
+            likesID: profile.likes._id
         }
       })
     })
   }
 
-  // MAKE FUNCTIONS FOR BUTTONS TO PASS
-  likeBtn = (_id) => {
-    console.log("Liked", _id);
+  likeBtn = (likesID, _id) => {
+    API.getLikes(likesID)
+      .then(res => {
+        if(res.data.likes.includes(_id)) {
+          alert("User is already liked")
+        }
+        else {
+          this.setState({likesArr: res.data.likes.concat(_id)});
+          alert("User liked");
+          // updates user's likes
+          API.updateLikes(likesID, this.state.likesArr)
+            .then(res2 => {}).catch(err => {console.log(err)})
+        }
+      })
+      .catch(err => {
+        console.log(err);
+      })
   }
 
-  dislikeBtn = (_id) => {
-    console.log("Dislike", _id);
+  dislikeBtn = (likesID, _id) => {
+    console.log("Dislike", likesID);
+    API.getLikes(likesID)
+      .then(res => {
+        if(res.data.likes.includes(_id)) {
+          alert("User is already liked");
+          let arr = [];
+          for (let i = 0; i < res.data.likes.length; i++) {
+            if(res.data.likes[i] !== _id) {
+              arr.push(res.data.likes[i]);
+            }
+          }
+          this.setState({dislikeArr: arr});
+          // updates user's likes
+          API.updateLikes(likesID, this.state.dislikeArr)
+            .then(res2 => {}).catch(err => {console.log(err)})
+          alert("Dislike user");
+        }
+        else {
+          // skips user
+          // carousel moves
+          console.log("User not in likes")
+        }
+      })
+      .catch(err => {
+        console.log(err);
+      })
   }
 
   render() {
@@ -67,6 +109,7 @@ class Cards extends Component {
             bio={profile.bio}
             pictures={profile.pictures}
             reviews={profile.reviews}
+            likesID={profile.likesID}
 
             btn1={this.likeBtn}
             btn2={this.dislikeBtn}

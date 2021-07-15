@@ -24,8 +24,8 @@ function Card(props) {
                 {props.bio}
             </p>
             <div className="likes">
-                <button onClick={() => props.btn1(props._id)}>{props.label1}</button>
-                <button onClick={() => props.btn2(props._id)}>{props.label2}</button>
+                <button onClick={() => props.btn1(props.likesID, props._id)}>{props.label1}</button>
+                <button onClick={() => props.btn2(props.likesID, props._id)}>{props.label2}</button>
             </div>
         </div>
     );
