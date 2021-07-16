@@ -12,10 +12,18 @@ function Forms() {
     email: "",
     password:""
   })
-  function register(event){
+  async function register(event){
 
     event.preventDefault()
-    console.log("hi")
+    let response = await fetch('/api/user',{
+      body: JSON.stringify(formData),
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+    let data = await response.json()
+    // window.location.replace("/login")
   }
 
   
@@ -32,11 +40,18 @@ function Forms() {
   <Container className = "formContainer">
   <Card className = "formsCard"> 
 
-  <form onSubmit={register}>
+  <Form onSubmit={register}>
    
   <Form.Group controlId="email">
     <Form.Label>Email:</Form.Label>
-    <Form.Control type="email" placeholder="name@example.com" onChange={update} />
+    <Form.Control type="email" placeholder="name@example.com" onChange={update} value={formData.email}/>
+    
+    
+  </Form.Group>
+
+  <Form.Group controlId="password">
+    <Form.Label>Password:</Form.Label>
+    <Form.Control type="password" onChange={update} value={formData.password} />
     
     
   </Form.Group>
@@ -87,7 +102,7 @@ function Forms() {
     <Button variant="primary" type="submit">
       Submit
     </Button>
-    </form>
+    </Form>
     
 
 </Card>
