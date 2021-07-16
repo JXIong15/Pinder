@@ -25,10 +25,13 @@ function Navbar(){
   </Nav.Item>
 
   <Nav.Item>
-    <Nav.Link eventKey="disabled" disabled>
-      Disabled
-    </Nav.Link>
+    <Nav.Link href="/VideoChat">Video Chat</Nav.Link>
   </Nav.Item>
+
+  <Nav.Item>
+    <Nav.Link href="/ReviewForm">Review Form</Nav.Link>
+  </Nav.Item>
+
   <Nav.Item>
     <Nav.Link eventKey="disabled" disabled>
       Contacts
