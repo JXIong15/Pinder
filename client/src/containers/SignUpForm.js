@@ -15,13 +15,12 @@ class SignUpForm extends Component {
   saveUser = () => {
     API.createUser({
       email: this.state.email,
-      password: this.state.password,
-      profile: ""
+      password: this.state.password
     })
     .then(res => {alert(`You're signed up!`)})
-    .catch(err => {
-      alert("User already exists. Login instead."); // CAN DIRECT TO LOGIN PAGE USING LINK
-      console.log(err.message);
+    .catch(err => { // NEED VALIDATORS TO SHOW
+      alert(err); // CAN DIRECT TO LOGIN PAGE USING LINK
+      console.log(err);
     });
   } // FIX USER ROUTES
 
