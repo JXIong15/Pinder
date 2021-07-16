@@ -2,6 +2,10 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const profileSchema = new Schema({
+    user: {
+        type: Schema.Types.ObjectId,
+        ref: "User"
+    },
     intent: { type: String, required: true },
     first: { type: String, required: true },
     last: { type: String, required: true },

@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import "./index.css";
 import Login from './containers/Login';
-import Forms from './containers/Forms';
+import SignUpForm from './containers/SignUpForm';
 import Navbar from './containers/Navbar';
 import Matches from './containers/Matches';
 import Messages from './containers/Messages';
@@ -40,7 +40,8 @@ function App(props) {
 
             <Route exact path="/login" component={Login} />
 
-            <Route exact path="/forms" component={Forms} />
+
+            <Route exact path="/signup" component={SignUpForm} />
 
             <Route exact path="/matches" component={Matches} />
 

@@ -6,6 +6,7 @@ const { Types: { ObjectId } } = mongoose;
 const profileSeed = [
     {
         _id: ObjectId("60ef88c621aa76c7d39b9460"),
+        user: ObjectId("0000001fe136c637652883bc"),
         intent: "Friends",
         first: "SpongeBob",
         last: "SquarePants",
@@ -29,6 +30,7 @@ const profileSeed = [
     },
     {
         _id: ObjectId("60ef88c621aa76c7d39b9461"),
+        user: ObjectId("00000002f8591e57d818ea77"),
         intent: "Friends",
         first: "Ash",
         last: "Ketchum",
@@ -51,6 +53,7 @@ const profileSeed = [
     },
     {
         _id: ObjectId("60ef88c621aa76c7d39b9462"),
+        user: ObjectId("00000003f8591e57d818ea78"),
         intent: "Friends",
         first: "Shaggy",
         last: "Rogers",
@@ -72,6 +75,7 @@ const profileSeed = [
     },
     {
         _id: ObjectId("60ef88c621aa76c7d39b9463"),
+        user: ObjectId("00000004f8591e57d818ea79"),
         intent: "Friends",
         first: "Emily Elizabeth",
         last: "Howard",
@@ -93,6 +97,7 @@ const profileSeed = [
     },
     {
         _id: ObjectId("60ef88c621aa76c7d39b9464"),
+        user: ObjectId("00000005f8591e57d818ea7a"),
         intent: "Friends",
         first: "Kiba",
         last: "Inuzuka",
@@ -114,6 +119,7 @@ const profileSeed = [
     },
     {
         _id: ObjectId("60ef88c621aa76c7d39b9465"),
+        user: ObjectId("00000006f8591e57d818ea7b"),
         intent: "Friends",
         first: "Janet",
         last: "Smith",
@@ -136,6 +142,7 @@ const profileSeed = [
     },
     {
         _id: ObjectId("60ef88c621aa76c7d39b9466"),
+        user: ObjectId("00000007f8591e57d818ea7c"),
         intent: "Friends",
         first: "Amber",
         last: "Jones",
@@ -157,6 +164,7 @@ const profileSeed = [
     },
     {
         _id: ObjectId("60ef88c621aa76c7d39b9467"),
+        user: ObjectId("00000008f8591e57d818ea7d"),
         intent: "Friends",
         first: "Aang",
         last: "Avatar",
@@ -178,6 +186,7 @@ const profileSeed = [
     },
     {
         _id: ObjectId("60ef88c621aa76c7d39b9468"),
+        user: ObjectId("00000009f8591e57d818ea7e"),
         intent: "Friends",
         first: "Kim",
         last: "Kardashian",
@@ -201,6 +210,7 @@ const profileSeed = [
     },
     {
         _id: ObjectId("60ef88c621aa76c7d39b9469"),
+        user: ObjectId("0000000af8591e57d818ea7f"),
         intent: "Friends",
         first: "Jennifer",
         last: "Aniston",
