@@ -3,7 +3,6 @@ import Form from "react-bootstrap/Form";
 import Container from "react-bootstrap/Container";
 import Card from "react-bootstrap/Card";
 import API from "../utils/API";
-import { Redirect } from "react-router-dom";
 
 class SignUpForm extends Component {
   state = {
@@ -18,6 +17,7 @@ class SignUpForm extends Component {
       password: this.state.password
     })
       .then(res => { 
+        console.log(res)
         alert(`You're signed up!`);
         window.location = "/login";
       })
