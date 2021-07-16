@@ -5,7 +5,7 @@ module.exports = {
         db.User
             .find(req.query)
             .then(dbModel => res.json(dbModel))
-            .catch(err => res.status(422).json(err));
+            .catch(err => res.status(404).json(err));
     },
 
     findById: function (req, res) {
@@ -19,7 +19,7 @@ module.exports = {
       db.User
         .create(req.body)
         .then(dbModel => res.json(dbModel))
-        .catch(err => res.status(422).json(err));
+        .catch(err => res.status(500).json(err));
     },
 
     update: function(req, res) {

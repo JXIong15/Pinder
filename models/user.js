@@ -1,20 +1,25 @@
 const mongoose = require("mongoose");
-const bcrypt = require ("bcrypt");
+const bcrypt = require("bcrypt");
 mongoose.promise = Promise;
 // const {String} = mongoose.Schema.Types;
 const validator = require('validator')
 const Schema = mongoose.Schema;
 
-const userSchema = new mongoose.Schema({
+const userSchema = new Schema({
   email: {
     type: String,
-    required: 'Email address is required',
+    trim: true,
+    lowercase: true,
     unique: true,
+    required: 'Email address is required',
+    validate: {
+      validator: validator.isEmail,
+      message: 'Invalid Email'
+    }
   },
   password: {
     type: String,
-    required: true,
-
+    required: 'Password is required',
     validate: {
       validator: validator.isStrongPassword,
       message: 'Not a strong password: min 8 char, at least 1 lower and upper case letter, at least 1 number and symbol'
