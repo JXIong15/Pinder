@@ -3,9 +3,9 @@ import Form from "react-bootstrap/Form";
 import Container from "react-bootstrap/Container";
 import Card from "react-bootstrap/Card";
 import API from "../utils/API";
+import { Redirect } from "react-router-dom";
 
 class SignUpForm extends Component {
-  // function Forms() {
   state = {
     email: "",
     password: "",
@@ -17,12 +17,22 @@ class SignUpForm extends Component {
       email: this.state.email,
       password: this.state.password
     })
-    .then(res => {alert(`You're signed up!`)})
-    .catch(err => { // NEED VALIDATORS TO SHOW
-      alert(err); // CAN DIRECT TO LOGIN PAGE USING LINK
-      console.log(err);
-    });
-  } // FIX USER ROUTES
+      .then(res => { 
+        alert(`You're signed up!`);
+        window.location = "/login";
+      })
+      .catch(err => { 
+        if (err.message == "Request failed with status code 500") {
+          alert(`User already exists with email. Login instead!`);
+          window.location = "/login";
+        }
+        else {
+          // NEED VALIDATORS TO SHOW
+        alert(err); // CAN DIRECT TO LOGIN PAGE USING LINK
+        console.log(err);
+        }
+      });
+  }
 
 
   handleInputChange = event => {
@@ -30,10 +40,12 @@ class SignUpForm extends Component {
     let value = event.target.value;
     const name = event.target.name;
 
+    // WONT NEED IF I CAN GET VALIDATORS TO SHOW
     // if (name === "password") {
     //   value = value.substring(0, 15);
     // }
     // Updating the input's state
+
     this.setState({
       [name]: value
     });
@@ -49,8 +61,6 @@ class SignUpForm extends Component {
     } else {
       this.saveUser();
     }
-
-    console.log(this.state);
 
     this.setState({
       email: "",
@@ -69,11 +79,11 @@ class SignUpForm extends Component {
             <br></br>
             <Form.Group controlId="exampleForm.ControlInput1">
               <Form.Label>Email:</Form.Label>
-              <Form.Control 
-                type="email" 
+              <Form.Control
+                type="email"
                 name="email"
-                placeholder="name@example.com" 
-                onChange={this.handleInputChange} 
+                placeholder="name@example.com"
+                onChange={this.handleInputChange}
                 value={this.state.email}
               />
             </Form.Group>
@@ -83,9 +93,9 @@ class SignUpForm extends Component {
 
               <Form.Group controlId="exampleForm.ControlInput1">
                 <Form.Label>Password:</Form.Label>
-                <Form.Control 
-                  type="password" 
-                  onChange={this.handleInputChange} 
+                <Form.Control
+                  type="password"
+                  onChange={this.handleInputChange}
                   name="password"
                   value={this.state.password}
                 />
@@ -96,10 +106,10 @@ class SignUpForm extends Component {
 
               <Form.Group controlId="exampleForm.ControlInput1">
                 <Form.Label>Confirm Password:</Form.Label>
-                <Form.Control 
-                  type="password" 
-                  placeholder="Confirm Password" 
-                  onChange={this.handleInputChange} 
+                <Form.Control
+                  type="password"
+                  placeholder="Confirm Password"
+                  onChange={this.handleInputChange}
                   name="confirm"
                   value={this.state.confirm}
                 />
@@ -137,8 +147,6 @@ class SignUpForm extends Component {
           </Form>
         </Card>
       </Container>
-
-
     );
   }
 }
