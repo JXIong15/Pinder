@@ -29,10 +29,14 @@
   },
   "dependencies": {
     "axios": "^0.21.1",
+    "bcrypt": "^5.0.1",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
+    "express-session": "^1.17.2",
     "if-env": "^1.0.4",
     "mongoose": "^5.13.1",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0",
     "twilio": "^3.65.0",
     "validator": "^13.6.0"
   }

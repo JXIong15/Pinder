@@ -1,27 +1,45 @@
 import React from "react";
 import Nav from "react-bootstrap/Nav";
-import {Link} from 'react-router-dom';
+import {Link, useHistory} from 'react-router-dom';
+import axios from 'axios';
 
 
-function Navbar(){
+function Navbar(props){
+
+ let history = useHistory();
+ const { user } = props;
+ const logOut = () => {
+   console.log("logging out");
+   axios.get("/logout").then((res) => {
+     props.setLogin(null);
+     history.push("/");
+   });
+ };
+
+
     return(
 <Nav variant="tabs" defaultActiveKey="/home">
 
 <Nav.Item>
-    <Nav.Link href="/home">Home</Nav.Link>
+    <Nav.Link onClick={() => {history.push("/home")}}>Home</Nav.Link>
   </Nav.Item>
 
 
   <Nav.Item>
-    <Nav.Link href="/login">Login</Nav.Link>
+  <Nav.Link onClick={() => {history.push("/login")}}>Login</Nav.Link>
+</Nav.Item>
+
+<Nav.Item>
+<Nav.Link onClick={() => {history.push("/forms")}}>Signup</Nav.Link>
+</Nav.Item>
+
+<Nav.Item>
+    <Nav.Link onClick={() => {history.push("/matches")}}>Matches</Nav.Link>
   </Nav.Item>
 
-  <Nav.Item>
-    <Nav.Link href="/forms">Signup</Nav.Link>
-  </Nav.Item>
 
   <Nav.Item>
-    <Nav.Link href="/matches">Matches</Nav.Link>
+    <Nav.Link onClick={() => {history.push("/logout")}}>Logout</Nav.Link>
   </Nav.Item>
 
   <Nav.Item>
@@ -30,6 +48,9 @@ function Navbar(){
 
   <Nav.Item>
     <Nav.Link href="/ReviewForm">Review Form</Nav.Link>
+    <Nav.Link eventKey="disabled" disabled>
+      Logout
+    </Nav.Link>
   </Nav.Item>
 
   <Nav.Item>
