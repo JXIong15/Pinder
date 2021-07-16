@@ -9,20 +9,21 @@ class SignUpForm extends Component {
   state = {
     email: "",
     password: "",
-    confirm: "",
-    profile: ""
+    confirm: ""
   };
 
   saveUser = () => {
     API.createUser({
-
+      email: this.state.email,
+      password: this.state.password,
+      profile: ""
     })
     .then(res => {alert(`You're signed up!`)})
     .catch(err => {
       alert("User already exists. Login instead."); // CAN DIRECT TO LOGIN PAGE USING LINK
       console.log(err.message);
     });
-  }
+  } // FIX USER ROUTES
 
 
   handleInputChange = event => {
