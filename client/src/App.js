@@ -8,6 +8,7 @@ import Messages from './containers/Messages';
 import Cards from "./containers/Cards";
 import Review from "./containers/Reviews";
 import VideoChat from './containers/VideoChat';
+import Barney from './containers/Reviewform';
 
 
 
@@ -33,17 +34,18 @@ function App() {
             <Route exact path="/" component={Cards} />
             <Route exact path="/message" component={Messages} />
             {/* <Cards /> */}
-            <Route exact path="/reviews" component={Review} />
             {/* End Jou test */}
 
-            <Route exact path="/test" component={VideoChat} />
+            <Route exact path="/videochat" component={VideoChat} />
 
             <Route exact path="/login" component={Login} />
-
 
             <Route exact path="/forms" component={Forms} />
 
             <Route exact path="/matches" component={Matches} />
+
+            <Route exact path="/reviewform" component={Barney} />
+
 
 
           </Switch>
