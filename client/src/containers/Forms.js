@@ -22,7 +22,23 @@ function Forms() {
 
     <Form.Group controlId="exampleForm.ControlInput1">
     <Form.Label>Username:</Form.Label>
-    <Form.Control type="email" placeholder="name@example.com" />
+    <Form.Control />
+  </Form.Group>
+  <Form.Group controlId="exampleForm.ControlSelect1"></Form.Group>
+
+    <br></br>
+
+    <Form.Group controlId="exampleForm.ControlInput1">
+    <Form.Label>Password:</Form.Label>
+    <Form.Control />
+  </Form.Group>
+  <Form.Group controlId="exampleForm.ControlSelect1"></Form.Group>
+
+    <br></br>
+
+    <Form.Group controlId="exampleForm.ControlInput1">
+    <Form.Label>Confirm Password:</Form.Label>
+    <Form.Control  placeholder="Re-type Your Password" />
   </Form.Group>
   <Form.Group controlId="exampleForm.ControlSelect1"></Form.Group>
 
