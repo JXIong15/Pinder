@@ -30,7 +30,7 @@ function Navbar(props){
 </Nav.Item>
 
 <Nav.Item>
-<Nav.Link onClick={() => {history.push("/forms")}}>Signup</Nav.Link>
+<Nav.Link onClick={() => {history.push("/signup")}}>Signup</Nav.Link>
 </Nav.Item>
 
 <Nav.Item>
