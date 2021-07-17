@@ -23,10 +23,9 @@ function Login(props) {
           password: password.current.value,
         }
         console.log(currentUser)
-        axios
-        .post("/login", currentUser)
-        .then((data) => {
-          props.setLogin(data.data)
+        axios.post("/api/userAuth/login", currentUser)
+          .then((data) => {
+          props.setLogin(data.value)
           history.push("/matches")
 
         }).catch((err) => {
