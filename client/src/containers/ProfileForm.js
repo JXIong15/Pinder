@@ -29,7 +29,7 @@ class ProfileForm extends Component {
     const name = event.target.name;
     // if (name === "pictureS") {
     //   this.setState({ pictures: pictures.concat(value) })
-      // POP OFF PICTURES[0] (DEFAULT PIC)
+    // POP OFF PICTURES[0] (DEFAULT PIC)
     // } 
     // else {
     this.setState({ [name]: value })
@@ -47,9 +47,9 @@ class ProfileForm extends Component {
     if (this.state.age < 18) {
       alert("Pinder is not for minors!")
     }
-      
 
-    
+
+
     API.createProfile({
       // user: this.state.user,
       intent: this.state.intent,
@@ -183,30 +183,33 @@ class ProfileForm extends Component {
           </div>
 
           {/* image upload */}
+          
 
-          <label>Bio</label>
-          <input
-            value={this.state.bio}
-            type="textfield"
-            name="bio"
-            onChange={this.handleInputChange}
-          />
 
-          <label>What is your reason for using Pinder?</label>
-          <select id="intent" onChange={this.handleInputChange} name="intent">
-            <option value="Friends">Friends</option>
-            <option value="HookUps">Hook Ups</option>
-            <option value="Love">Looking for Love</option>
-            <option value="Anything">I'm looking for anything and everything!</option>
-          </select>
 
-          <button onClick={this.handleFormSubmit}>Submit</button>
+            <label>Bio</label>
+            <input
+              value={this.state.bio}
+              type="textfield"
+              name="bio"
+              onChange={this.handleInputChange}
+            />
+
+            <label>What is your reason for using Pinder?</label>
+            <select id="intent" onChange={this.handleInputChange} name="intent">
+              <option value="Friends">Friends</option>
+              <option value="HookUps">Hook Ups</option>
+              <option value="Love">Looking for Love</option>
+              <option value="Anything">I'm looking for anything and everything!</option>
+            </select>
+
+            <button onClick={this.handleFormSubmit}>Submit</button>
         </form>
       </div>
 
-    );
+        );
   }
 }
 
 
-export default ProfileForm;
+        export default ProfileForm;

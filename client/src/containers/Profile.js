@@ -55,7 +55,7 @@ class Profile extends Component {
                 <div className="demo">
                     <p>{this.state.profile.age}</p>
                     <p>{this.state.profile.gender}</p>
-                    {/* <p>{location.city}, {location.state}</p> */}
+                    <p>{this.state.profile.city}, {this.state.profile.state}</p>
                 </div>
                 <p className="bio">
                     <span>Bio: </span>

@@ -18,6 +18,7 @@ class Cards extends Component {
         this.setState({ allProfiles: res.data });
         this.sortProfiles();
       })
+      .then (res2 => {console.log(this.state.profileOptions)})
       .catch(err => {
         console.log(err);
       })
@@ -27,6 +28,7 @@ class Cards extends Component {
   sortProfiles = () => {
     this.setState({ profileOptions: 
       this.state.allProfiles.map((profile) => {
+        // console.log(profile._id)
         // IF INTENT AND LOCATION ARE THE SAME
         // SEXUATLITY
         return {
@@ -36,8 +38,8 @@ class Cards extends Component {
             last: profile.last,
             age: profile.age,
             gender: profile.gender,
-            city: profile.location[0].city,
-            state: profile.location[0].state,
+            city: profile.city,
+            state: profile.state,
             bio: profile.bio,
             pictures: profile.pictures,
             reviews: profile.reviews,
@@ -96,6 +98,7 @@ class Cards extends Component {
   }
 
   render() {
+    
     return (
       <div>
         {this.state.profileOptions.map((profile) => {
