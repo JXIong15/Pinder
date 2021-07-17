@@ -54,7 +54,6 @@ class Review extends Component {
     };
 
 
-
     render() {
         return (
             <div>
@@ -66,6 +65,7 @@ class Review extends Component {
                     </Link>
                     <span>{this.state.avgRating}</span>
                 </h1>
+                <button onClick={()=>this.props.history.goBack()}>Back</button>
 
                 {this.state.reviewsArr.map(review => {
                     // keeps running. GET HELP ON THIS

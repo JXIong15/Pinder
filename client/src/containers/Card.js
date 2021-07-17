@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from 'react-router-dom';
 
-// TO-DO: ADD RATING, AND REVIEWS
 function Card(props) {
     // gets ratings to average
     const reviewsArr = props.reviews.reviews;
