@@ -26,10 +26,7 @@ console.log("props:", props);
         console.log(currentUser)
         axios.post("/api/userAuth/login", currentUser)
           .then((data) => {
-  console.log(data);
-          .then(() => {
           history.push("/matches")
-
         }).catch((err) => {
           console.log(err)
         })
