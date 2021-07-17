@@ -10,6 +10,7 @@ import Profile from "./containers/Profile";
 import Reviews from "./containers/Reviews";
 import VideoChat from './containers/VideoChat';
 import Barney from './containers/Reviewform';
+import ProfileForm from './containers/ProfileForm';
 import React, {useState} from 'react';
 
 
@@ -27,14 +28,12 @@ function App(props) {
             {/* <Route exact path="/" component={login} /> */}
             {/* else*/}
             
-            {/* // Jou test  */}
-            {/* <Card /> */}
+            
             <Route exact path="/" component={Cards} />
             <Route exact path="/message" component={Messages} />
-            {/* <Cards /> */}
             <Route exact path="/reviews/:id" component={Reviews} />
             <Route exact path="/profile/:id" component={Profile} />
-            {/* End Jou test */}
+            <Route exact path="/profileform" component={ProfileForm} />
 
             <Route exact path="/videochat" component={VideoChat} />
 

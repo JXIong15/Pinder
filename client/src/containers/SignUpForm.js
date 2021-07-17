@@ -22,7 +22,7 @@ class SignUpForm extends Component {
         window.location = "/login";
       })
       .catch(err => { 
-        if (err.message == "Request failed with status code 500") {
+        if (err.message === "Request failed with status code 500") {
           alert(`User already exists with email. Login instead!`);
           window.location = "/login";
         }
