@@ -11,6 +11,7 @@ import axios from "axios";
 function Login(props) {
   // const [email, setEmail] = useState("");
   // const [password, setPassword] = useState("");
+console.log("props:", props);
 
   let email = useRef()
   let password = useRef()
@@ -24,8 +25,9 @@ function Login(props) {
         }
         console.log(currentUser)
         axios.post("/api/userAuth/login", currentUser)
+          .then((data) => {
+  console.log(data);
           .then(() => {
-          // props.setLogin(data.value)
           history.push("/matches")
 
         }).catch((err) => {

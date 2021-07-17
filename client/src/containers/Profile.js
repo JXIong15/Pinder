@@ -34,7 +34,7 @@ class Profile extends Component {
     }
 
     render() {
-        console.log("pics in prof:", this.state.profile.pictures)
+        // console.log("pics in prof:", this.state.profile.pictures)
 
 
         return (

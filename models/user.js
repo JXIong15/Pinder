@@ -35,8 +35,7 @@ userSchema.methods = {
   checkPassword: function (inputPassword) {
     console.log("password ", inputPassword);
     console.log("password ", this.password);
-    console.log("first name ", this.firstName);
-    console.log(this);
+    // console.log("first name ", this.firstName);
     return bcrypt.compareSync(inputPassword, this.password);
   },
   hashPassword: (plainTextPassword) => {

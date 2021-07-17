@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import "./index.css";
 import Login from './containers/Login';
@@ -11,45 +12,34 @@ import Reviews from "./containers/Reviews";
 import VideoChat from './containers/VideoChat';
 import Barney from './containers/Reviewform';
 import ProfileForm from './containers/ProfileForm';
-import React, {useState} from 'react';
+// import PrivateRoute from './PrivateRoute';
 
 
-
-function App(props) {
-  const [user, setLogin] = useState()
+function App() {
+  // const [user, setLogin] = useState()
   return (
     <Router>
-        <Navbar setLogin = {setLogin} user = {user} {...props}/>
-        
-    
-        <div>
-          <Switch>
-            {/* If !logged-in */}
-            {/* <Route exact path="/" component={login} /> */}
-            {/* else*/}
-            
-            
-            <Route exact path="/" component={Cards} />
-            <Route exact path="/message" component={Messages} />
-            <Route exact path="/reviews/:id" component={Reviews} />
-            <Route exact path="/profile/:id" component={Profile} />
-            <Route exact path="/profileform" component={ProfileForm} />
-
-            <Route exact path="/videochat" component={VideoChat} />
-
-            <Route exact path="/login" component={Login} />
+      <Navbar />
 
 
-            <Route exact path="/signup" component={SignUpForm} />
+      <div>
+        <Switch>
+          {/* If !logged-in */}
+          {/* <Route exact path="/" component={login} /> */}
+          {/* else*/}
 
-            <Route exact path="/matches" component={Matches} />
-
-            <Route exact path="/reviewform/:id" component={Barney} />
-
-
-
-          </Switch>
-        </div>
+          <Route exact path="/" component={Cards} />
+          <Route exact path="/message" component={Messages} />
+          <Route exact path="/reviews/:id" component={Reviews} />
+          <Route exact path="/profile/:id" component={Profile} />
+          <Route exact path="/profileform" component={ProfileForm} />
+          <Route exact path="/videochat" component={VideoChat} />
+          <Route exact path="/login" component={Login} />
+          <Route exact path="/signup" component={SignUpForm} />
+          <Route exact path="/matches" component={Matches} />
+          <Route exact path="/reviewform/:id" component={Barney} />
+        </Switch>
+      </div>
 
 
 
