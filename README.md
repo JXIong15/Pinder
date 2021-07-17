@@ -83,6 +83,8 @@ Pinder allows users to match with others who have the same intent as them. In ad
 * To change reviews, users can contact Pinder staff with evidence and reasoning on appealing reviews
 * more data on profile, especially profile views
 * add stars to represent rating rather than numbers
+* Add a location checker
+* allow users to login with their other social media
 
 
 ## Sources
