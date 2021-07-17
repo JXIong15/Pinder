@@ -64,9 +64,8 @@ class ProfileForm extends Component {
       bio: this.state.bio,
     })
       .then(res => {
-        console.log(res.data)
-        // TO-DO: GET NEW ID FOR
-        // window.location = "/profile/:id";
+        console.log(res.data._id)
+        window.location = `/profile/${res.data._id}`;
       })
       .catch(err => {
         // NEED VALIDATORS TO SHOW

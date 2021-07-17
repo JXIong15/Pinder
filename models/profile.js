@@ -24,6 +24,8 @@ const profileSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: "Reviews"
     }
+}, {
+    versionKey: false
 })
 
 const Profile = mongoose.model("Profile", profileSchema);
