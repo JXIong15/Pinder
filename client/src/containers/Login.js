@@ -8,7 +8,9 @@ import axios from "axios";
 
 // import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
-function Login(props){
+function Login(props) {
+  // const [email, setEmail] = useState("");
+  // const [password, setPassword] = useState("");
 
   let email = useRef()
   let password = useRef()
@@ -32,33 +34,51 @@ function Login(props){
         })
     }
 
-    return (
-        <Container className = "container">
-        <Card className = "loginCard"> 
-          <Card.Header>Login</Card.Header>
-      <Form className = "loginForm" onSubmit={handleSubmit}>
-        <Form.Group className = "loginGroup" size="lg" controlId="email">
-          <Form.Label className = "formLabel">Email</Form.Label>
-          <Form.Control
-            autoFocus
-            type="email"
-            ref = {email}
-          />
-        </Form.Group>
-        <Form.Group className = "loginGroup" size="lg" controlId="password">
-          <Form.Label className = "formLabel">Password</Form.Label>
-          <Form.Control
-            type="password"
-            ref = {password}
-          />
-        </Form.Group>
-        <Button className = "loginBtn" block type="submit">
+  return (
+    <Container className = "container">
+      <Card className = "loginCard"> 
+        <Card.Header>
           Login
-        </Button>
-      </Form>
+        </Card.Header>
+        <Form
+          className="loginForm"
+          onSubmit={handleSubmit}>
+          <Form.Group
+            className="loginGroup"
+            size="lg"
+            controlId="email">
+            <Form.Label
+              className="formLabel">
+              Email
+            </Form.Label>
+            <Form.Control
+              autoFocus
+              type="email"
+              ref = {email}
+            />
+          </Form.Group>
+            <Form.Group
+              className="loginGroup"
+              size="lg"
+              controlId="password">
+            <Form.Label
+              className="formLabel">
+              Password
+            </Form.Label>
+            <Form.Control
+              type="password"
+              ref = {password}
+            />
+          </Form.Group>
+          <Button
+            className="loginBtn"
+            block type="submit">
+            Login
+          </Button>
+        </Form>
       </Card>
-      </Container>
-        );
+    </Container>
+  );
     
 }
 
