@@ -12,11 +12,13 @@ class Cards extends Component {
     dislikeArr: []
   };
 
+  // TO-DO: FIX WHEN NEW PROFILE/USER IS ADDED
   componentDidMount() {
     API.getAllProfiles()
       .then(res => {
         this.setState({ allProfiles: res.data });
         this.sortProfiles();
+        console.log("HE")
       })
       .then (res2 => {console.log(this.state.profileOptions)})
       .catch(err => {
@@ -47,6 +49,7 @@ class Cards extends Component {
         }
       })
     })
+    console.log(this.state.profileOptions)
   }
 
   likeBtn = (likesID, _id) => {
@@ -98,7 +101,6 @@ class Cards extends Component {
   }
 
   render() {
-    
     return (
       <div>
         {this.state.profileOptions.map((profile) => {

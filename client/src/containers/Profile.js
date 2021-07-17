@@ -16,7 +16,7 @@ class Profile extends Component {
             .then(res => { this.setState({ profile: res.data }) })
             .then(res2 => {
                 this.getRating();
-                this.setState({reviewID: this.state.profile.reviews._id})
+                this.setState({reviewID: this.state.profile.reviews._id});
             })
             .catch(err => {
                 console.log(err);
@@ -34,13 +34,9 @@ class Profile extends Component {
     }
 
     render() {
-        let location;
+        console.log(this.state.profile.pictures)
 
-        // DOES NOT WORK: getting all data to display
-        // console.log(this.state.profile.reviews)
-        if (this.state.profile.location) {
-            location = Object.values(this.state.profile.location[0]);
-        }
+        
         return (
             <div className="card">
                 <div className="head">
