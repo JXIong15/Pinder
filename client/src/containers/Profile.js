@@ -16,7 +16,7 @@ class Profile extends Component {
             .then(res => { this.setState({ profile: res.data }) })
             .then(res2 => {
                 this.getRating();
-                this.setState({reviewID: this.state.profile.reviews._id})
+                this.setState({ reviewID: this.state.profile.reviews._id });
             })
             .catch(err => {
                 console.log(err);
@@ -34,13 +34,9 @@ class Profile extends Component {
     }
 
     render() {
-        let location;
+        console.log("pics in prof:", this.state.profile.pictures)
 
-        // DOES NOT WORK: getting all data to display
-        // console.log(this.state.profile.reviews)
-        if (this.state.profile.location) {
-            location = Object.values(this.state.profile.location[0]);
-        }
+
         return (
             <div className="card">
                 <div className="head">
@@ -52,6 +48,7 @@ class Profile extends Component {
                 {/* {this.state.profile.pictures.map(pic => {
                     return <img alt="picture(s)" src={pic}></img>
                 })} */}
+
                 <div className="demo">
                     <p>{this.state.profile.age}</p>
                     <p>{this.state.profile.gender}</p>
@@ -67,7 +64,7 @@ class Profile extends Component {
                 </div>  */}
 
                 <Link to={`/reviewform/${this.state.reviewID}`}>
-                        Leave a Review for {this.state.profile.first} {this.state.profile.last}
+                    Leave a Review for {this.state.profile.first} {this.state.profile.last}
                 </Link>
             </div>
         );
