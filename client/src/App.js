@@ -45,7 +45,7 @@ function App(props) {
 
             <Route exact path="/matches" component={Matches} />
 
-            <Route exact path="/reviewform" component={Barney} />
+            <Route exact path="/reviewform/:id" component={Barney} />
 
 
 
