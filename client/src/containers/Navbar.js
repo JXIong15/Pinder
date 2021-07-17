@@ -47,7 +47,7 @@ function Navbar(props){
   </Nav.Item>
 
   <Nav.Item>
-    <Nav.Link href="/ReviewForm">Review Form</Nav.Link>
+    
     <Nav.Link eventKey="disabled" disabled>
       Logout
     </Nav.Link>
