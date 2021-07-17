@@ -116,32 +116,6 @@ class SignUpForm extends Component {
               </Form.Group>
               <Form.Group controlId="exampleForm.ControlSelect1"></Form.Group>
 
-
-
-              {/* <Form.Label>Gender:</Form.Label>
-              <Form.Control as="select">
-                <option>Male</option>
-                <option>Female</option>
-                <option>Non Binary</option>
-                <option>Transgender</option>
-              </Form.Control>
-
-              <br></br>
-
-              <Form.Label>Interested In:</Form.Label>
-              <Form.Control as="select">
-                <option>Male</option>
-                <option>Female</option>
-                <option>Both</option>
-                <option>Transgender</option>
-              </Form.Control>
-
-              <br></br>
-
-            </Form.Group>
-            <Form.Group controlId="exampleForm.ControlTextarea1">
-              <Form.Label>Bio:</Form.Label>
-              <Form.Control as="textarea" rows={3} /> */}
             </Form.Group>
             <button onClick={this.handleFormSubmit}>Sign Me Up!</button>
           </Form>

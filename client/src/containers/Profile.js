@@ -7,13 +7,17 @@ class Profile extends Component {
     state = {
         profile: [],
         id: this.props.match.params.id,
-        avgRating: ""
+        avgRating: "",
+        reviewID: ""
     }
 
     componentDidMount() {
         API.getProfile(this.state.id)
             .then(res => { this.setState({ profile: res.data }) })
-            .then(res2 => this.getRating())
+            .then(res2 => {
+                this.getRating();
+                this.setState({reviewID: this.state.profile.reviews._id})
+            })
             .catch(err => {
                 console.log(err);
             })
@@ -37,7 +41,6 @@ class Profile extends Component {
         if (this.state.profile.location) {
             location = Object.values(this.state.profile.location[0]);
         }
-
         return (
             <div className="card">
                 <div className="head">
@@ -63,7 +66,7 @@ class Profile extends Component {
                     <button onClick={() => props.btn2(props._id)}>{props.label2}</button>
                 </div>  */}
 
-                <Link to={`/reviewform/${this.state.profile._id}`}>
+                <Link to={`/reviewform/${this.state.reviewID}`}>
                         Leave a Review for {this.state.profile.first} {this.state.profile.last}
                 </Link>
             </div>
