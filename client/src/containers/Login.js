@@ -25,7 +25,6 @@ function Login(props) {
         console.log(currentUser)
         axios.post("/api/userAuth/login", currentUser)
           .then(() => {
-          // props.setLogin(data.value)
           history.push("/matches")
 
         }).catch((err) => {
