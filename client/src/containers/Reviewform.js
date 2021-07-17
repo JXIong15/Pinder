@@ -9,10 +9,10 @@ import API from "../utils/API";
 class ReviewForm extends Component {
   state = {
     review: {
-      reviewer: "test", //SET REVIEWER WHEN WE GET LOGIN WORKING;
+      reviewer: "test", //SET REVIEWER WHEN WE GET LOGIN WORKING; NEED TO CHECK IF REVIEWER HAS ALREADY REVIEWED REVIEWEE. ONLY CAN REVIEW ONCE
       title: "",
       body: "",
-      rating: "",
+      rating: 5,
     },
     id: this.props.match.params.id,
     reviewsArr: []
@@ -33,39 +33,43 @@ class ReviewForm extends Component {
   handleInputChange = event => {
     let value = event.target.value;
     const name = event.target.name;
-    this.setState(prevState => ({
+
+    if (name === "rating") {
+      value = parseInt(value);
+    }
+
+    this.setState({
       review: {
-        ...prevState.review,
         [name]: value
       }
-    }))
+    })
   };
 
 
   handleFormSubmit = event => {
-    // Preventing the default behavior of the form submit (which is to refresh the page)
     event.preventDefault();
-    // update reviews for user in a separate array
+console.log("state",this.state.review)
+    API.getReviews(this.state.id)
+    .then(res => {
+      this.setState({ reviewsArr: res.data.reviews });
+      // CREATE AN ARRAY FOR ALL USER IDS AND CHECK TO MAKE SURE LOGGED IN USER HASN'T REVIEWED THIS USER YET
+      // ELSE
+  console.log(this.state.review)
+      this.setState({ reviewsArr: this.state.reviewsArr.concat(this.state.review) });
+  console.log(this.state.reviewsArr)
+      API.updateReviews(this.state.id, this.state.reviewsArr)
+        .then(res2 => { console.log("in",this.state.reviewsArr)}).catch(err => { console.log(err) })
+    })
+    .catch(err => {
+      console.log(err);
+    })
 
-    console.log("state", this.state)
-    console.log("arr: ", this.state.reviewsArr)
-console.log("Num", isNaN(this.state.rating))
-
-    if (isNaN(this.state.rating)) {
-      alert("Select a rating!")
-    }
-    else {
-      this.setState({ reviewsArr: this.state.reviewsArr.concat(this.state.review) })
-      console.log(this.state.reviewsArr)
-
-      this.setState({
+    this.setState({
+      review: {
         title: "",
-        body: "",
-        rating: ""
-      });
-    }
-
-
+        body: ""
+      }
+    });
   };
 
   render() {
@@ -91,14 +95,13 @@ console.log("Num", isNaN(this.state.rating))
 
               <Form.Label>Star Rating:</Form.Label>
               {/* <Form.Control as="dropdown"> */}
-                <select id="rating" onChange={this.handleInputChange} name="rating">
-                  <option value="Choose Rating">Choose Rating</option>
-                  <option value="5">5 Stars</option>
-                  <option value="4">4 Stars</option>
-                  <option value="3">3 Stars</option>
-                  <option value="2">2 Stars</option>
-                  <option value="1">1 Star</option>
-                </select>
+              <select id="rating" onChange={this.handleInputChange} name="rating">
+                <option value="5">5 Stars</option>
+                <option value="4">4 Stars</option>
+                <option value="3">3 Stars</option>
+                <option value="2">2 Stars</option>
+                <option value="1">1 Star</option>
+              </select>
               {/* </Form.Control> */}
 
               <br></br>

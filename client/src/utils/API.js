@@ -53,8 +53,8 @@ export default {
   getReviews: function(id) {
     return axios.get("/api/reviews/" + id); 
   },
-  updateReviews: function(id) {
-    return axios.put("/api/reviews/" + id)
+  updateReviews: function(id, reviews) {
+    return axios.put("/api/reviews/" + id, {reviews})
   },
   deleteReviews: function(id) {
     return axios.delete("/api/reviews/" + id); // IF USER CASCADES, CAN DELETE THIS FUNC
