@@ -31,8 +31,7 @@ function Login(props) {
         if (!res.data.auth) {
           setLoginStatus(false);
         } else {
-          console.log(res.data)
-          localStorage.setItem("token", "Bearer " + res.data.token);
+          localStorage.setItem("token", res.data.token);
           setLoginStatus(true);
 
           // auth.login(() => {
