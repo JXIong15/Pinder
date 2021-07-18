@@ -17,6 +17,7 @@ function Login(props) {
   let password = useRef()
   let history = useHistory()
 
+  const [loginStatus, setLoginStatus] = useState(false);
 
 
   const handleSubmit = (event) => {
@@ -28,15 +29,32 @@ function Login(props) {
     console.log(currentUser)
 
 
-    axios.post("/api/userAuth/login", currentUser)
-      .then((data) => {
-        auth.login(() => {
-          props.history.push("/")
-        })
+    axios.post("/api/login", currentUser)
+      .then((res) => {
+        if (!res.data.auth) {
+          setLoginStatus(false);
+        } else {
+          localStorage.setItem("token", "Bearer " + res.data.token);
+          setLoginStatus(true);
+
+          // auth.login(() => {
+          //   props.history.push("/")
+          // })
+        }
       })
       .catch((err) => {
         console.log(err)
       })
+  }
+
+  const userAuthenticated = () => {
+    axios.get("/api/isUserAuth", {
+      headers: {
+        "x-access-token": localStorage.getItem("token"),
+      },
+    }).then((res) => {
+      console.log(res);
+    })
   }
 
 
@@ -84,6 +102,11 @@ function Login(props) {
           </Button>
         </Form>
       </Card>
+
+
+      {loginStatus && (
+        <button onClick={userAuthenticated}>Check If Auth</button>
+      )}
     </Container>
   );
 
