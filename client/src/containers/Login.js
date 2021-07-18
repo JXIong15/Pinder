@@ -26,14 +26,12 @@ function Login(props) {
       email: email.current.value,
       password: password.current.value,
     }
-    console.log(currentUser)
-
-
     axios.post("/api/login", currentUser)
       .then((res) => {
         if (!res.data.auth) {
           setLoginStatus(false);
         } else {
+          console.log(res.data)
           localStorage.setItem("token", "Bearer " + res.data.token);
           setLoginStatus(true);
 
@@ -55,6 +53,7 @@ function Login(props) {
     }).then((res) => {
       console.log(res);
     })
+    .catch(err => console.log(err))
   }
 
 
@@ -66,8 +65,7 @@ function Login(props) {
           Login
         </Card.Header>
         <Form
-          className="loginForm"
-          onSubmit={handleSubmit}>
+          className="loginForm">
           <Form.Group
             className="loginGroup"
             size="lg"
@@ -97,7 +95,8 @@ function Login(props) {
           </Form.Group>
           <Button
             className="loginBtn"
-            block type="submit">
+            block type="submit"
+            onClick={handleSubmit}>
             Login
           </Button>
         </Form>

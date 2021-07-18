@@ -21,7 +21,7 @@ router.get('/isUserAuth', verifyJWT, (req, res) => {
 
 router.post("/login", passport.authenticate("local"), function (req, res) {
     console.log("login hit");
-
+console.log("res", res)
     const email = req.user.email;
     const password = req.user.password;
     const id = req.user.id;

@@ -13,11 +13,11 @@ const strategy = new LocalStrategy(
       }
       if (!user) {
         console.log("incorrect username");
-        return done(null, false, { message: "Incorrect username" });
+        return done(null, false, { auth: false, message: "Incorrect username" });
       }
       if (!user.checkPassword(password)) {
         console.log("incorrect password");
-        return done(null, false, { message: "Incorrect password" });
+        return done(null, false, { auth: false, message: "Incorrect password" });
       }
       // console.log("Who knows?");
       return done(null, user);
