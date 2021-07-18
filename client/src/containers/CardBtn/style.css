@@ -3,6 +3,7 @@
   margin-top: 5vh;
   display: flex;
   width: 100%;
+  justify-content: center;
   justify-content: space-evenly;
 }
 
@@ -31,3 +32,4 @@
 .flash_icon {
   color: gold;
 }
+
