@@ -12,7 +12,9 @@ import Reviews from "./containers/Reviews";
 import VideoChat from './containers/VideoChat';
 import Barney from './containers/Reviewform';
 import ProfileForm from './containers/ProfileForm';
-// import PrivateRoute from './PrivateRoute';
+import {PrivateRoute} from './containers/PrivateRoute';
+import {Logout} from "./containers/Logout";
+import Home from "./containers/Home";
 
 
 function App() {
@@ -28,16 +30,22 @@ function App() {
           {/* <Route exact path="/" component={login} /> */}
           {/* else*/}
 
-          <Route exact path="/" component={Cards} />
-          <Route exact path="/message" component={Messages} />
+          <Route exact path="/login" component={Login} />
+          <Route exact path="/" component={Home} />
+
+          <PrivateRoute exact path="/logout" component={Logout} />
+          <PrivateRoute exact path="/matchme" component={Cards} />
+          <PrivateRoute exact path="/message" component={Messages} />
+
           <Route exact path="/reviews/:id" component={Reviews} />
           <Route exact path="/profile/:id" component={Profile} />
           <Route exact path="/profileform" component={ProfileForm} />
           <Route exact path="/videochat" component={VideoChat} />
-          <Route exact path="/login" component={Login} />
           <Route exact path="/signup" component={SignUpForm} />
-          <Route exact path="/matches" component={Matches} />
+          <PrivateRoute exact path="/matches" component={Matches} />
           <Route exact path="/reviewform/:id" component={Barney} />
+
+          <Route path="*" componenet={() => "404 NOT FOUND"} />
         </Switch>
       </div>
 

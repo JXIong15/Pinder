@@ -18,10 +18,10 @@ function Navbar(props){
 
 
     return(
-<Nav variant="tabs" defaultActiveKey="/home">
+<Nav variant="tabs" defaultActiveKey="/">
 
 <Nav.Item>
-    <Nav.Link onClick={() => {history.push("/home")}}>Home</Nav.Link>
+    <Nav.Link onClick={() => {history.push("/")}}>Home</Nav.Link>
   </Nav.Item>
 
 
