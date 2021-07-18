@@ -4,6 +4,7 @@ import auth from '../utils/auth';
 
 export const PrivateRoute = ({ component: Component, ...rest }) => {
 
+  console.log("auth", auth.isAuthenticated);
   return (
     <Route
       {...rest}

@@ -6,7 +6,7 @@ function Card(props) {
     const reviewsArr = props.reviews.reviews;
     let ratings = [];
     reviewsArr.map(review => {
-        ratings.push(review.rating);
+        return ratings.push(review.rating);
     })
     const sum = ratings.reduce((a, b) => a + b, 0);
     const avg = (sum / ratings.length) || 0;
@@ -20,7 +20,7 @@ function Card(props) {
             </div>
             {/* CAN MAKE A SEPARATE FILE FOR DIEGO'S CAROUSEL */}
             {props.pictures.map(pic => {
-                return <img alt="picture(s)" src={pic}></img>
+                return <img alt={props.last} src={pic}></img>
             })}
             <div className="demo">
                 <p>{props.age}</p>

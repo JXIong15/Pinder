@@ -30,7 +30,7 @@ class Cards extends Component {
   sortProfiles = () => {
     this.setState({ profileOptions: 
       this.state.allProfiles.map((profile) => {
-        // console.log(profile._id)
+        console.log(profile.likes._id)
         // IF INTENT AND LOCATION ARE THE SAME
         // SEXUATLITY
         return {

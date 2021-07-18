@@ -18,8 +18,6 @@ export default {
     return axios.delete("/api/user/" + id); // SHOULD CASCADE ON DELETE BUT DOESN'T
   },
 
-  
-
 
   // Gets all profiles
   getAllProfiles: function() {

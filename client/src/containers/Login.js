@@ -12,7 +12,6 @@ import auth from "../utils/auth";
 function Login(props) {
   // const [email, setEmail] = useState("");
   // const [password, setPassword] = useState("");
-  console.log("props:", props);
 
   let email = useRef()
   let password = useRef()
