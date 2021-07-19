@@ -8,13 +8,15 @@ class SignUpForm extends Component {
   state = {
     email: "",
     password: "",
-    confirm: ""
+    confirm: "",
+    profile: null
   };
 
   saveUser = () => {
     API.createUser({
       email: this.state.email,
-      password: this.state.password
+      password: this.state.password,
+      profile: this.state.profile
     })
       .then(res => { 
         console.log(res)

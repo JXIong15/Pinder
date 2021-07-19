@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Nav from "react-bootstrap/Nav";
 import { Link, useHistory } from 'react-router-dom';
 import auth from '../utils/auth';
@@ -13,11 +13,13 @@ const Navbar = () => {
     history.push("/login");
   }
 
-  // if (localStorage.getItem('token')) {
-  //   const token = localStorage.getItem("token");
-  //   const current_user = decode(token);
-  //   setUserID(current_user.id);
-  // }
+  useEffect(() => {
+    if (localStorage.getItem('token')) {
+      const token = localStorage.getItem("token");
+      const current_user = decode(token);
+      setUserID(current_user.id);
+    }
+  })
     
   
 
