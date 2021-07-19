@@ -18,8 +18,8 @@ export default {
   getUser: function(id) {
     return axios.get("/api/user/" + id)
   },
-  updateUser: function(id) {
-    return axios.put("/api/user/" + id)
+  updateUser: function(id, userInfo) {
+    return axios.put("/api/user/" + id, {userInfo})
   },
   // Deletes the profile with the given id
   deleteUser: function(id) {

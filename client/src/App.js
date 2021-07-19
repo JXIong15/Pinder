@@ -12,17 +12,17 @@ import Reviews from "./containers/Reviews";
 import VideoChat from './containers/VideoChat';
 import Barney from './containers/Forms/Reviewform';
 import ProfileForm from './containers/Forms/ProfileForm';
-import {PrivateRoute} from './utils/PrivateRoute';
+import { PrivateRoute } from './utils/PrivateRoute';
 import Home from "./containers/Home";
+import EditProfile from "./containers/Forms/EditProfile";
 
 function App() {
-  // const [user, setLogin] = useState()
-  
+
   return (
     <Router>
       <Navbar />
 
-{/* MATCHES AND HOME DON'T WORK RIGHT AWAY */}
+      {/* MATCHES AND HOME DON'T WORK RIGHT AWAY */}
       <div>
         <Switch>
           {/* If !logged-in */}
@@ -30,7 +30,7 @@ function App() {
           {/* else*/}
           <Route exact path="/signup" component={SignUpForm} />
           <Route exact path="/login" component={Login} />
-          
+
           <PrivateRoute exact path="/" component={Home} />
           <PrivateRoute exact path="/matchme" component={Cards} />
           <PrivateRoute exact path="/message" component={Messages} />
@@ -40,6 +40,7 @@ function App() {
           <PrivateRoute exact path="/videochat" component={VideoChat} />
           <PrivateRoute exact path="/matches" component={Matches} />
           <PrivateRoute exact path="/reviewform/:id" component={Barney} />
+          <PrivateRoute exact path="/editprofile/:id" component={EditProfile} />
 
           <Route path="*" componenet={() => "404 NOT FOUND"} />
         </Switch>

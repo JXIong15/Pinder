@@ -7,7 +7,6 @@ import { useHistory, Link } from "react-router-dom";
 import axios from "axios";
 import API from "../utils/API";
 import decode from 'jwt-decode';
-import ProfileForm from "./Forms/ProfileForm";
 
 // import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
@@ -45,7 +44,6 @@ function Login(props) {
   const nextPage = () => {
     const token = localStorage.getItem("token");
     const current_user = decode(token);
-    console.log("token login", current_user)
 
     API.getUser(current_user.id)
       .then(res => {
@@ -57,9 +55,6 @@ function Login(props) {
         }
       })
       .catch(err => console.log(err))
-    // auth.login(() => {
-    // if(current_user)
-    // })
   }
 
   return (

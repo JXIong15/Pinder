@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import API from "../utils/API";
 import { Link } from 'react-router-dom';
-import ReviewForm from './Forms/Reviewform';
+import decode from 'jwt-decode';
 
 class Profile extends Component {
     state = {
+        user: "",
         profile: [],
         id: this.props.match.params.id,
         avgRating: "",
@@ -12,6 +13,10 @@ class Profile extends Component {
     }
 
     componentDidMount() {
+        const token = localStorage.getItem("token");
+        const current_user = decode(token);
+        this.setState({ user: current_user.id });
+
         API.getProfile(this.state.id)
             .then(res => { this.setState({ profile: res.data }) })
             .then(res2 => {
@@ -35,7 +40,6 @@ class Profile extends Component {
 
     render() {
         // console.log("pics in prof:", this.state.profile.pictures)
-
 
         return (
             <div className="card">
@@ -63,9 +67,16 @@ class Profile extends Component {
                     <button onClick={() => props.btn2(props._id)}>{props.label2}</button>
                 </div>  */}
 
-                <Link to={`/reviewform/${this.state.reviewID}`}>
-                    Leave a Review for {this.state.profile.first} {this.state.profile.last}
-                </Link>
+                {(this.state.user === this.state.id) ? (
+                    <Link to={`/editprofile/${this.state.id}`}>
+                        Edit Your Profile
+                    </Link>
+                ) : (
+                    <Link to={`/reviewform/${this.state.reviewID}`}>
+                        Leave a Review for {this.state.profile.first} {this.state.profile.last}
+                    </Link>
+                )
+                }
             </div>
         );
 
