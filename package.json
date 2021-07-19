@@ -35,6 +35,7 @@
     "express-session": "^1.17.2",
     "if-env": "^1.0.4",
     "jsonwebtoken": "^8.5.1",
+    "jwt-decode": "^3.1.2",
     "mongoose": "^5.13.1",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
