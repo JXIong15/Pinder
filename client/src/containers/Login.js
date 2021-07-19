@@ -6,6 +6,8 @@ import Container from "react-bootstrap/Container"
 import { useHistory, Link } from "react-router-dom";
 import axios from "axios";
 import API from "../utils/API";
+import decode from 'jwt-decode';
+import ProfileForm from "./Forms/ProfileForm";
 
 // import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
@@ -15,11 +17,10 @@ function Login(props) {
 
   let email = useRef()
   let password = useRef()
-  let history = useHistory()
+  // let history = useHistory()
 
   const [loginStatus, setLoginStatus] = useState(false);
 
-  
   const handleSubmit = (event) => {
     event.preventDefault();
     let currentUser = {
@@ -32,12 +33,8 @@ function Login(props) {
           setLoginStatus(false);
         } else {
           localStorage.setItem("token", res.data.token);
-          console.log(res.data.token);
           setLoginStatus(true);
-
-          // auth.login(() => {
-          //   props.history.push("/")
-          // })
+          nextPage();
         }
       })
       .catch((err) => {
@@ -45,15 +42,25 @@ function Login(props) {
       })
   }
 
-  const userAuthenticated = () => {
-    API.userAuthenticated()
-    .then((res) => {
-      console.log(res);
-    })
-    .catch(err => console.log(err))
+  const nextPage = () => {
+    const token = localStorage.getItem("token");
+    const current_user = decode(token);
+    console.log("token login", current_user)
+
+    API.getUser(current_user.id)
+      .then(res => {
+        console.log(res.data.profile);
+        if(res.data.profile) {
+          props.history.push("/")
+        } else {
+          props.history.push(`/profileform/${current_user.id}`);
+        }
+      })
+      .catch(err => console.log(err))
+    // auth.login(() => {
+    // if(current_user)
+    // })
   }
-
-
 
   return (
     <Container className="container">
@@ -98,11 +105,6 @@ function Login(props) {
           </Button>
         </Form>
       </Card>
-
-
-      {loginStatus && (
-        <button onClick={userAuthenticated}>Check If Auth</button>
-      )}
     </Container>
   );
 

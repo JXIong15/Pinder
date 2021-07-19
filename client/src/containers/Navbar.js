@@ -1,28 +1,42 @@
 import React from "react";
 import Nav from "react-bootstrap/Nav";
 import { Link, useHistory } from 'react-router-dom';
-import axios from 'axios';
+import auth from '../utils/auth';
 
 
 const Navbar = () => {
-
   let history = useHistory();
-  // const { user } = props;
-  // const logOut = () => {
-  //   console.log("logging out");
-  //   axios.get("/logout").then((res) => {
-  //     props.setLogin(null);
-  //     history.push("/");
-  //   });
-  // };
 
-  const user = null;
+  const Logout = () => {
+    localStorage.removeItem("token");
+    history.push("/login");
+}
+
 
   return (
     <Nav variant="tabs" defaultActiveKey="/">
-      {user ? (
+      
+      <Nav.Item>
+        <Nav.Link onClick={() => { history.push("/") }}>Home</Nav.Link>
+      </Nav.Item>
+
+      <Nav.Item>
+        <Nav.Link onClick={() => { history.push("/matchme") }}>Match Me!</Nav.Link>
+      </Nav.Item>
+
+      <Nav.Item>
+        <Nav.Link onClick={() => { history.push("/matches") }}>My Matches</Nav.Link>
+      </Nav.Item>
+
+      <Nav.Item>
+        <Nav.Link href="/VideoChat">Video Chat</Nav.Link>
+      </Nav.Item>
+
+
+      {/* // AUTH NAV DOESN'T WORK RIGHT AWAY. HAVE TO REFRESH PAGE */}
+      {auth ? (
         <Nav.Item>
-          <Nav.Link onClick={() => { history.push("/logout") }}>Logout</Nav.Link>
+          <Nav.Link onClick={ Logout }>Logout</Nav.Link>
         </Nav.Item>
       ) : (
         <div>
@@ -35,33 +49,6 @@ const Navbar = () => {
           </Nav.Item>
         </div>
       )}
-
-
-      <Nav.Item>
-        <Nav.Link onClick={() => { history.push("/") }}>Home</Nav.Link>
-      </Nav.Item>
-
-
-      <Nav.Item>
-        <Nav.Link onClick={() => { history.push("/matches") }}>Matches</Nav.Link>
-      </Nav.Item>
-
-      <Nav.Item>
-        <Nav.Link href="/VideoChat">Video Chat</Nav.Link>
-      </Nav.Item>
-
-      {/* <Nav.Item>
-
-        <Nav.Link eventKey="disabled" disabled>
-          Logout
-        </Nav.Link>
-      </Nav.Item>
-
-      <Nav.Item>
-        <Nav.Link eventKey="disabled" disabled>
-          Contacts
-        </Nav.Link>
-      </Nav.Item> */}
     </Nav>
   )
 }

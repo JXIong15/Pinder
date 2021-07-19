@@ -3,7 +3,7 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button"
 import Card from "react-bootstrap/Card"
 import Container from "react-bootstrap/Container";
-import API from "../utils/API";
+import API from "../../utils/API";
 
 // AFTER LOGIN, ADD THE USER'S ID AT THE END OF URL THAT CALLS THIS DOC
 class ProfileForm extends Component {

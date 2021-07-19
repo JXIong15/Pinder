@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import API from "../utils/API";
 import { Link } from 'react-router-dom';
-import ReviewForm from './Reviewform';
+import ReviewForm from './Forms/Reviewform';
 
 class Profile extends Component {
     state = {

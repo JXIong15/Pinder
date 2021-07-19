@@ -15,13 +15,6 @@ router.use("/likes", likesRoutes);
 router.use("/reviews", reviewsRoutes);
 
 
-router.get('/login', verifyJWT, (req, res) => {
-    res.send("YOU ARE AUTHENTICATED!");
-    // NEED TO GET DATA
-    // console.log("req", req)
-    console.log("res!!!!!!!!!:    ", res.user);
-})
-
 router.post("/login", passport.authenticate("local"), function (req, res) {
     console.log("login hit");
 
