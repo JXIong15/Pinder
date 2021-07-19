@@ -16,7 +16,6 @@ import ProfileForm from './containers/ProfileForm';
 import {Logout} from "./containers/Logout";
 import Home from "./containers/Home";
 
-
 function App() {
   // const [user, setLogin] = useState()
   return (

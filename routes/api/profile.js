@@ -1,11 +1,11 @@
 const router = require("express").Router();
 const ProfileController = require("../../controllers/ProfileControllers");
-const auth = require("../../utils/auth");
+const verifyJWT = require("../../utils/verifyJWT");
 // TO-DO: use withAuth on all funcs
 
 // Matches with "/api/profile"
 router.route("/")
-  .get(auth, ProfileController.findAll)
+  .get(ProfileController.findAll)
   .post(ProfileController.create);
 
 // Matches with "/api/profile/:id"

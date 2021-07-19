@@ -1,6 +1,14 @@
 import axios from "axios";
 
 export default {
+  userAuthenticated: function() {
+    return axios.get("api/login", {
+      headers: {
+        "x-access-token": localStorage.getItem("token"),
+      }
+    })
+  },
+  
   getAllUsers: function() {
     return axios.get("/api/user"); 
   },

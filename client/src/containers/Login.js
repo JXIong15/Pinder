@@ -5,13 +5,13 @@ import Card from "react-bootstrap/Card"
 import Container from "react-bootstrap/Container"
 import { useHistory, Link } from "react-router-dom";
 import axios from "axios";
-import auth from "../utils/auth";
+import API from "../utils/API";
 
 // import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 function Login(props) {
   // const [email, setEmail] = useState("");
-  // const [password, setPassword] = useState("");
+  const [user, setUser] = useState({});
 
   let email = useRef()
   let password = useRef()
@@ -19,7 +19,7 @@ function Login(props) {
 
   const [loginStatus, setLoginStatus] = useState(false);
 
-
+  
   const handleSubmit = (event) => {
     event.preventDefault();
     let currentUser = {
@@ -32,6 +32,7 @@ function Login(props) {
           setLoginStatus(false);
         } else {
           localStorage.setItem("token", res.data.token);
+          console.log(res.data.token);
           setLoginStatus(true);
 
           // auth.login(() => {
@@ -45,11 +46,8 @@ function Login(props) {
   }
 
   const userAuthenticated = () => {
-    axios.get("/api/isUserAuth", {
-      headers: {
-        "x-access-token": localStorage.getItem("token"),
-      },
-    }).then((res) => {
+    API.userAuthenticated()
+    .then((res) => {
       console.log(res);
     })
     .catch(err => console.log(err))

@@ -15,8 +15,11 @@ router.use("/likes", likesRoutes);
 router.use("/reviews", reviewsRoutes);
 
 
-router.get('/isUserAuth', verifyJWT, (req, res) => {
-    res.send("YOU ARE AUTHENTICATED!")
+router.get('/login', verifyJWT, (req, res) => {
+    res.send("YOU ARE AUTHENTICATED!");
+    // NEED TO GET DATA
+    console.log("req", req)
+    console.log("res", res);
 })
 
 router.post("/login", passport.authenticate("local"), function (req, res) {
@@ -27,7 +30,7 @@ router.post("/login", passport.authenticate("local"), function (req, res) {
     const id = req.user.id;
 
     const token = jwt.sign({ id }, process.env.JWT_SECRET, {
-        expiresIn: 300,
+        expiresIn: 3600,
     })
 
 
