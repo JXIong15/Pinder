@@ -3,12 +3,9 @@
 
 
 ## Jou To-Do
-* Is there a way to pull data from parent tables?
 * delete certain fetches from Likes and Reviews routes
 * add withAuth to all routes
-* Don't allow for ratings to be edited. Delete "PUT" route in Reviews
 * add images to profile model and seed
-* Cloudinary for image upload
 
 
 
@@ -85,6 +82,7 @@ Pinder allows users to match with others who have the same intent as them. In ad
 * add stars to represent rating rather than numbers
 * Add a location checker
 * allow users to login with their other social media
+* Add chat messaging
 
 
 ## Sources

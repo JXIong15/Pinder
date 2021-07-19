@@ -1,6 +1,14 @@
 import axios from "axios";
 
 export default {
+  userAuthenticated: function() {
+    return axios.get("api/login", {
+      headers: {
+        "x-access-token": localStorage.getItem("token"),
+      }
+    })
+  },
+  
   getAllUsers: function() {
     return axios.get("/api/user"); 
   },
@@ -10,15 +18,13 @@ export default {
   getUser: function(id) {
     return axios.get("/api/user/" + id)
   },
-  updateUser: function(id) {
-    return axios.put("/api/user/" + id)
+  updateUser: function(id, userInfo) {
+    return axios.put("/api/user/" + id, {userInfo})
   },
   // Deletes the profile with the given id
   deleteUser: function(id) {
     return axios.delete("/api/user/" + id); // SHOULD CASCADE ON DELETE BUT DOESN'T
   },
-
-  
 
 
   // Gets all profiles

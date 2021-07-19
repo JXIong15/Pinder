@@ -2,7 +2,7 @@ import { React, Component } from "react";
 import Form from "react-bootstrap/Form";
 import Container from "react-bootstrap/Container";
 import Card from "react-bootstrap/Card";
-import API from "../utils/API";
+import API from "../../utils/API";
 
 class SignUpForm extends Component {
   state = {

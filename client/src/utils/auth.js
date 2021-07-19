@@ -1,10 +1,9 @@
-const withAuth = (req, res, next) => {
-    // If the user isn't logged in, redirect them to the login route
-    if (!req.session.logged_in) {
-      res.redirect('/login');
-    } else {
-      next();
-    }
-  };
-  
-  module.exports = withAuth;
+const Auth = () => {
+  const token = localStorage.getItem('token');
+  if (!token) {
+    return false;
+  }
+  return true;
+}
+
+export default Auth();

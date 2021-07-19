@@ -3,6 +3,7 @@ const express = require("express");
 const { videoToken } = require('./tokens');
 const config = require('./config');
 
+
 const path = require("path");
 const mongoose = require("mongoose");
 const routes = require("./routes");
@@ -11,6 +12,8 @@ const PORT = process.env.PORT || 3001;
 
 const session = require("express-session");
 const passport = require("./passport");
+
+
 
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
