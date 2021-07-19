@@ -1,14 +1,15 @@
 import React from "react";
-import auth from "../utils/auth";
 
 export const Logout = (props) => {
+    const LogoutBtn = () => {
+        console.log("Logout")
+        localStorage.removeItem("token");
+        props.history.push("/login");
+    }
+
     return (
         <div>
-            <button onClick={() => {
-                auth.logout(() => {
-                    props.history.push("/login");
-                })
-            }}>Logout</button>
+            <button onClick={LogoutBtn}>Logout</button>
         </div>
     )
 }
