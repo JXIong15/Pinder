@@ -3,10 +3,12 @@ import Nav from "react-bootstrap/Nav";
 import { Link, useHistory } from 'react-router-dom';
 import auth from '../utils/auth';
 import decode from 'jwt-decode';
+import API from "../utils/API";
 
 const Navbar = () => {
   let history = useHistory();
   const [userID, setUserID] = useState("");
+  const [profileID, setProfileID] = useState("");
 
   const Logout = () => {
     localStorage.removeItem("token");
@@ -19,6 +21,15 @@ const Navbar = () => {
       const current_user = decode(token);
       setUserID(current_user.id);
     }
+
+    API.getUser(userID)
+      .then(res => {
+        if (res.data.profile === undefined) {
+          history.push(`/profileform/${userID}`);
+        } else {
+          setProfileID(res.data.profile);
+        }
+      })
   })
     
   
@@ -47,7 +58,7 @@ const Navbar = () => {
       {/* // AUTH NAV DOESN'T WORK RIGHT AWAY. HAVE TO REFRESH PAGE */}
       {auth ? (
         <Nav.Item>
-          <Nav.Link onClick={() => { history.push("/profile/" + userID) }}>Profile</Nav.Link>
+          <Nav.Link onClick={() => { history.push("/profile/" + profileID) }}>Profile</Nav.Link>
         </Nav.Item>
       ) : (
           <Nav.Item>
