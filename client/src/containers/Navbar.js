@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Nav from "react-bootstrap/Nav";
 import { Link, useHistory } from 'react-router-dom';
 import auth from '../utils/auth';
@@ -6,15 +6,19 @@ import decode from 'jwt-decode';
 
 const Navbar = () => {
   let history = useHistory();
+  const [userID, setUserID] = useState("");
 
   const Logout = () => {
     localStorage.removeItem("token");
     history.push("/login");
   }
 
-    const token = localStorage.getItem("token");
-    const current_user = decode(token);
-    const userID = current_user.id;
+  // if (localStorage.getItem('token')) {
+  //   const token = localStorage.getItem("token");
+  //   const current_user = decode(token);
+  //   setUserID(current_user.id);
+  // }
+    
   
 
 

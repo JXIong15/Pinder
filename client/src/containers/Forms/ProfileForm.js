@@ -19,7 +19,8 @@ class ProfileForm extends Component {
     state: "",
     pictures: [],
     bio: "",
-    selectedFile: null
+    selectedFile: null,
+    profile: ""
   }
 
   componentDidMount() {
@@ -70,16 +71,19 @@ class ProfileForm extends Component {
     }
     this.setState({ pictures: this.state.pictures.push(this.state.selectedFile.substring(5)) });
 
-    if (!this.state.user.profile) {
+    console.log(this.state.user.profile);
+
+    if (this.state.user.profile === undefined) {
       this.makeProfile();
     } else {
       this.updateProfile();
     }
-    window.location = `/profile/${this.state.user}`;
+    // window.location = `/profile/${this.state.user}`;
   };
 
   // if user doesn't have a profile, create one for them
   makeProfile = () => {
+    console.log("Make");
     API.createProfile({
       user: this.state.user,
       intent: this.state.intent,
@@ -95,8 +99,9 @@ class ProfileForm extends Component {
     })
       .then(res => {
         console.log(res.data._id)
-        API.updateUser(this.state.user, res.data._id)
-        
+        this.setState({profile: res.data._id})
+        API.updateUser(this.state.user, this.state.profile)
+          .then(res2 => {}).catch(err => console.log(err));
       })
       .catch(err => {
         // NEED VALIDATORS TO SHOW

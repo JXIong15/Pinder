@@ -68,7 +68,7 @@ class Profile extends Component {
                 </div>  */}
 
                 {(this.state.user === this.state.id) ? (
-                    <Link to={`/editprofile/${this.state.id}`}>
+                    <Link to={`/profileform/${this.state.id}`}>
                         Edit Your Profile
                     </Link>
                 ) : (

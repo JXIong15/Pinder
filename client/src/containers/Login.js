@@ -47,11 +47,10 @@ function Login(props) {
 
     API.getUser(current_user.id)
       .then(res => {
-        console.log(res.data.profile);
-        if(res.data.profile) {
-          props.history.push("/")
-        } else {
+        if (res.data.profile === undefined) {
           props.history.push(`/profileform/${current_user.id}`);
+        } else {
+          props.history.push("/")
         }
       })
       .catch(err => console.log(err))

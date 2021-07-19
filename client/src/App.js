@@ -14,7 +14,6 @@ import Barney from './containers/Forms/Reviewform';
 import ProfileForm from './containers/Forms/ProfileForm';
 import { PrivateRoute } from './utils/PrivateRoute';
 import Home from "./containers/Home";
-import EditProfile from "./containers/Forms/EditProfile";
 
 function App() {
 
@@ -40,7 +39,6 @@ function App() {
           <PrivateRoute exact path="/videochat" component={VideoChat} />
           <PrivateRoute exact path="/matches" component={Matches} />
           <PrivateRoute exact path="/reviewform/:id" component={Barney} />
-          <PrivateRoute exact path="/editprofile/:id" component={EditProfile} />
 
           <Route path="*" componenet={() => "404 NOT FOUND"} />
         </Switch>
