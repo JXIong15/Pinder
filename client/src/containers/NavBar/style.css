@@ -1,0 +1,41 @@
+/* Navbar clear background */
+.navbar {
+    background-color: transparent;
+  }
+  
+  /* Paw icon */
+  .fas {
+    font-size: 32px;
+    color: whitesmoke;
+  }
+    
+  /* Pinder title */
+  .pinder {
+    color: white;
+    font-size: 40px;
+    font-family: 'Poppins', sans-serif
+  };
+  
+  /* hamburger (list) icon */
+  .btn {
+  border: transparent;
+  background:transparent;
+  background-color: rgb(217, 235, 245);
+  }
+  
+  
+  
+  /* list home, about, login text */
+  .list-text {
+  color: black;
+  font-size: 25px;
+  }
+  
+  .menu {
+  color: ywhite;
+  size: 5rem;
+  }
+  
+  .btn {
+    background-color: brown;
+  }
