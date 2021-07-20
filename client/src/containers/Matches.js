@@ -1,4 +1,5 @@
 import {useEffect, React, useState} from "react";
+import { Link } from 'react-router-dom';
 
 function Matches() {
   const [employees, setEmployees] = useState([])
@@ -41,6 +42,7 @@ function Matches() {
               <td>{employee.dob.age}</td>
               <td>{employee.gender}</td>
               <td><img src= {employee.picture.thumbnail}/></td>
+              <Link to="/VideoChat">Video Chat</Link>
             </tr>
           })}
         </tbody>

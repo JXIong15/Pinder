@@ -7,6 +7,7 @@ const LikesControllers = require("../../controllers/LikesControllers");
 // Matches with "/api/likes"
 router.route("/")
   .get(LikesControllers.findAll) // don't need, but good for testing. Maybe delete later
+  .post(LikesControllers.create);
 
 // Matches with "/api/likes/:id"
 router

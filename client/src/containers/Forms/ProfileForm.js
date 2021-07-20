@@ -4,11 +4,12 @@ import Button from "react-bootstrap/Button"
 import Card from "react-bootstrap/Card"
 import Container from "react-bootstrap/Container";
 import API from "../../utils/API";
-import decode from 'jwt-decode';
+import crypto from "crypto";
 
 class ProfileForm extends Component {
   state = {
-    user: "",
+    profile: "",
+    user: this.props.match.params.id,
     intent: "Friends",
     first: "",
     last: "",
@@ -17,35 +18,22 @@ class ProfileForm extends Component {
     sex: "Heterosexual",
     city: "",
     state: "",
-    pictures: [],
+    // pictures: [],
     bio: "",
     selectedFile: null,
-
-    profile: "",
-    email: "",
-    password: ''
+    likes: "",
+    reviews: ''
   }
 
   componentDidMount() {
-    const token = localStorage.getItem("token");
-    const current_user = decode(token);
-    this.setState({ user: current_user.id })
+    let likesID = crypto.randomBytes(12).toString('hex');
+    this.setState({ likes: likesID });
+    API.createLikes({
+      _id: this.state.likes
+    }).then(res => { }).catch(err => console.log(err))
 
-    if (current_user.profile) {
-      this.setState({
-        first: current_user.profile.first,
-        last: current_user.profile.last,
-        age: current_user.profile.age,
-        gender: current_user.profile.gender,
-        sex: current_user.profile.sex,
-        city: current_user.profile.city,
-        state: current_user.profile.state,
-        pictures: current_user.profile.pictures,
-        bio: current_user.profile.bio,
-        intent: current_user.profile.intent
-      })
-      console.log(this.state)
-    }
+    let reviewsID = crypto.randomBytes(12).toString('hex');
+    this.setState({ reviews: reviewsID });
   }
 
 
@@ -64,29 +52,27 @@ class ProfileForm extends Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
-
     if (this.state.age < 18) {
       alert("Pinder is not for minors!")
     }
 
-    if (!this.state.pictures) {
-      this.setState({ pictures: ["data:image/png;base64,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"] })
-    }
-    this.setState({ pictures: this.state.pictures.push(this.state.selectedFile.substring(5)) });
+    // if (!this.state.pictures) {
+    //   this.setState({ pictures: ["data:image/png;base64,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"] })
+    // }
+    // this.setState({ pictures: this.state.pictures.push(this.state.selectedFile.substring(5)) });
 
-
-    if (this.state.user.profile === undefined) {
-      this.makeProfile();
-    } else {
-      this.updateProfile();
-    }
-    // window.location = `/profile/${this.state.profile}`;
+    API.getUser(this.state.user)
+      .then(res => {
+        this.setState({ profile: res.data.profile });
+        this.makeProfile();
+      })
+      .catch(err => console.log(err));
   };
 
   // if user doesn't have a profile, create one for them
   makeProfile = () => {
-    console.log("Make")
     API.createProfile({
+      _id: this.state.profile,
       user: this.state.user,
       intent: this.state.intent,
       first: this.state.first,
@@ -96,12 +82,22 @@ class ProfileForm extends Component {
       sex: this.state.sex,
       city: this.state.city,
       state: this.state.state,
-      pictures: this.state.pictures,
-      bio: this.state.bio
+      // pictures: this.state.pictures,
+      bio: this.state.bio,
+      likes: this.state.likes,
+      reviews: this.state.reviews
     })
       .then(res => {
-        this.setState({profile: res.data._id})
-        // this.addProfileToUser();
+        this.setState({ profile: res.data._id });
+
+        API.createReviews({
+          _id: this.state.reviews,
+          profile: this.state.profile
+        })
+        .then(res => { window.location = `/login` })
+        .catch(err => console.log(err))
+
+        
       })
       .catch(err => {
         // NEED VALIDATORS TO SHOW
@@ -110,35 +106,6 @@ class ProfileForm extends Component {
       });
   }
 
-  addProfileToUser = () => {
-    API.getUser(this.state.user)
-      .then(res => {
-         let userData = {
-           _id: res.data._id,
-           email: res.data.email,
-           password: res.data.password,
-           profile: this.state.profile
-         }
-        //  PROFILE WON'T UPDATE IN USER, SO...
-        // API.updateUser(this.state.user, userData)
-        // .then(res2 => {console.log("User", res2.data)}).catch(err => console.log(err));
-
-        // I know this is not the best way to do it, but I can't get the PUT to work. See notes above.
-        // API.deleteUser(this.state.user).then(res3 => {
-        //   API.createUser(userData)
-        //     .then(res4 => {})
-        //     .catch(err => console.log(err));
-        // })
-        // .catch(err => console.log(err));
-      })
-
-        
-  }
-
-  // if user has a profile, update it
-  updateProfile = () => {
-    console.log("UPDATE PROFILE");
-  }
 
 
   fileChangedHandler = (event) => {
@@ -153,6 +120,7 @@ class ProfileForm extends Component {
   }
 
   render() {
+    console.log(this.state.profile)
     return (
       <div className="form">
         <h3>Your Profile</h3>
@@ -264,7 +232,7 @@ class ProfileForm extends Component {
 
 
           {/* image upload */}
-          <input type="file" name="picture" onChange={this.handleInputChange} />
+          {/* <input type="file" name="picture" onChange={this.handleInputChange} /> */}
 
 
 

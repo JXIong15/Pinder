@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from 'react-router-dom';
 
 function Card(props) {
+
     // gets ratings to average
     const reviewsArr = props.reviews.reviews;
     let ratings = [];
@@ -11,12 +12,19 @@ function Card(props) {
     const sum = ratings.reduce((a, b) => a + b, 0);
     const avg = (sum / ratings.length) || 0;
 
+
+
+
     return (
         <div className="card">
             <div className="head">
                 <h1>{props.name}</h1>
                 <h2>Rating: {avg}</h2>
-                <Link to={{ pathname: `/reviews/${props.reviews._id}` }}>Review(s)</Link>
+                {(props.reviews.reviews === null) ?
+                    <p>No Reviews Yet</p>
+                    :
+                    <Link to={{ pathname: `/reviews/${props.reviews._id}` }}>Review(s)</Link>
+                }
             </div>
             {/* CAN MAKE A SEPARATE FILE FOR DIEGO'S CAROUSEL */}
             {props.pictures.map(pic => {
