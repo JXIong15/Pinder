@@ -48,7 +48,7 @@ function App() {
           <Route exact path="/matches" component={Matches} />
           <Route exact path="/reviewform" component={Barney} />
           <Route exact path="/signup" component={SignUpForm} />
-          <Route exact path="/login" component={Login} />
+          {/* <Route exact path="/login" component={Login} /> */}
           <Route exact path="/profileform/:id" component={ProfileForm} />
 
           <PrivateRoute exact path="/" component={Home} />
