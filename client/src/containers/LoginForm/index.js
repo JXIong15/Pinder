@@ -12,8 +12,6 @@ import API from "../../utils/API"
 
 function Login(props){
 
-  const [user, setUser] = useState({});
-
   let email = useRef()
   let password = useRef()
   let history = useHistory()
@@ -27,7 +25,7 @@ function Login(props){
       email: email.current.value,
       password: password.current.value,
     }
-    console.log(currentUser)
+    
     axios.post("/api/login", currentUser)
     .then((res) => {
       if (!res.data.auth) {
@@ -35,31 +33,13 @@ function Login(props){
       } else {
         localStorage.setItem("token", res.data.token);
         setLoginStatus(true);
-        // nextPage();
+        props.history.push("/");
       }
-      // props.setLogin(data.data)
-      // history.push("/matches")
     })
     .catch((err) => {
       console.log(err)
     })
   }
-
-
-  // const nextPage = () => {
-  //   const token = localStorage.getItem("token");
-  //   // const current_user = decode(token);
-
-  //   API.getUser(current_user.id)
-  //     .then(res => {
-  //       if (res.data.profile === undefined) {
-  //         props.history.push(`/profileform/${current_user.id}`);
-  //       } else {
-  //         props.history.push("/")
-  //       }
-  //     })
-  //     .catch(err => console.log(err))
-  // }
 
 
   return (props.trigger) ? (
