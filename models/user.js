@@ -6,7 +6,7 @@ const validator = require('validator')
 const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
-  
+
   email: {
     type: String,
     trim: true,
@@ -24,10 +24,14 @@ const userSchema = new Schema({
     validate: {
       validator: validator.isStrongPassword,
       message: 'Not a strong password: min 8 char, at least 1 lower and upper case letter, at least 1 number and symbol'
-    },
+    }
+  },
+  profile: {
+    type: Schema.Types.ObjectId,
+    ref: "profile"
   }
 }, {
-    versionKey: false
+  versionKey: false
 });
 
 

@@ -1,9 +1,9 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button"
 import Card from "react-bootstrap/Card"
 import Container from "react-bootstrap/Container"
-import { useHistory, Link } from "react-router-dom";
+import { useHistory, Link, Redirect } from "react-router-dom";
 import axios from "axios";
 import API from "../utils/API";
 import decode from 'jwt-decode';
@@ -18,15 +18,17 @@ function Login(props) {
   let password = useRef()
   // let history = useHistory()
 
-  
+
   const [loginStatus, setLoginStatus] = useState(false);
 
   const handleSubmit = (event) => {
     event.preventDefault();
+
     let currentUser = {
       email: email.current.value,
       password: password.current.value,
     }
+
     axios.post("/api/login", currentUser)
       .then((res) => {
         if (!res.data.auth) {
@@ -48,7 +50,7 @@ function Login(props) {
 
     API.getUser(current_user.id)
       .then(res => {
-        if (res.data.profile === undefined) {
+        if (res.data.profile === null) {
           props.history.push(`/profileform/${current_user.id}`);
         } else {
           props.history.push("/")
@@ -56,6 +58,7 @@ function Login(props) {
       })
       .catch(err => console.log(err))
   }
+
 
   return (
     <Container className="container">

@@ -28,26 +28,26 @@ class Cards extends Component {
 
   // sort through the array of all users and chooses users who fit the desired criteria
   sortProfiles = () => {
-    this.setState({ profileOptions: 
-      this.state.allProfiles.map((profile) => {
-        console.log(profile.likes._id)
-        // IF INTENT AND LOCATION ARE THE SAME
-        // SEXUATLITY
-        return {
-            key: profile._id,
-            _id: profile._id,
-            first: profile.first,
-            last: profile.last,
-            age: profile.age,
-            gender: profile.gender,
-            city: profile.city,
-            state: profile.state,
-            bio: profile.bio,
-            pictures: profile.pictures,
-            reviews: profile.reviews,
-            likesID: profile.likes._id
-        }
-      })
+    this.setState({ profileOptions: this.state.allProfiles
+      // this.state.allProfiles.map((profile) => {
+      //   console.log(profile.likes._id)
+      //   // IF INTENT AND LOCATION ARE THE SAME
+      //   // SEXUATLITY
+      //   return {
+      //       key: profile._id,
+      //       _id: profile._id,
+      //       first: profile.first,
+      //       last: profile.last,
+      //       age: profile.age,
+      //       gender: profile.gender,
+      //       city: profile.city,
+      //       state: profile.state,
+      //       bio: profile.bio,
+      //       pictures: profile.pictures,
+      //       reviews: profile.reviews,
+      //       likesID: profile.likes._id
+      //   }
+      // })
     })
     console.log(this.state.profileOptions)
   }

@@ -20,7 +20,10 @@ class ProfileForm extends Component {
     pictures: [],
     bio: "",
     selectedFile: null,
-    profile: ""
+
+    profile: "",
+    email: "",
+    password: ''
   }
 
   componentDidMount() {
@@ -71,19 +74,18 @@ class ProfileForm extends Component {
     }
     this.setState({ pictures: this.state.pictures.push(this.state.selectedFile.substring(5)) });
 
-    console.log(this.state.user.profile);
 
     if (this.state.user.profile === undefined) {
       this.makeProfile();
     } else {
       this.updateProfile();
     }
-    // window.location = `/profile/${this.state.user}`;
+    // window.location = `/profile/${this.state.profile}`;
   };
 
   // if user doesn't have a profile, create one for them
   makeProfile = () => {
-    console.log("Make");
+    console.log("Make")
     API.createProfile({
       user: this.state.user,
       intent: this.state.intent,
@@ -98,16 +100,39 @@ class ProfileForm extends Component {
       bio: this.state.bio
     })
       .then(res => {
-        console.log(res.data._id)
         this.setState({profile: res.data._id})
-        API.updateUser(this.state.user, this.state.profile)
-          .then(res2 => {}).catch(err => console.log(err));
+        // this.addProfileToUser();
       })
       .catch(err => {
         // NEED VALIDATORS TO SHOW
         alert(err); // CAN DIRECT TO LOGIN PAGE USING LINK
         console.log(err);
       });
+  }
+
+  addProfileToUser = () => {
+    API.getUser(this.state.user)
+      .then(res => {
+         let userData = {
+           _id: res.data._id,
+           email: res.data.email,
+           password: res.data.password,
+           profile: this.state.profile
+         }
+        //  PROFILE WON'T UPDATE IN USER, SO...
+        // API.updateUser(this.state.user, userData)
+        // .then(res2 => {console.log("User", res2.data)}).catch(err => console.log(err));
+
+        // I know this is not the best way to do it, but I can't get the PUT to work. See notes above.
+        // API.deleteUser(this.state.user).then(res3 => {
+        //   API.createUser(userData)
+        //     .then(res4 => {})
+        //     .catch(err => console.log(err));
+        // })
+        // .catch(err => console.log(err));
+      })
+
+        
   }
 
   // if user has a profile, update it
