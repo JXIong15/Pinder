@@ -22,15 +22,15 @@ const Navbar = () => {
       setUserID(current_user.id);
     }
 
-    // API.getUser(userID)
-    //   .then(res => {
-    //     if (res.data.profile === null) {
-    //       history.push(`/profileform/${userID}`);
-    //     } else {
-    //       setProfileID(res.data.profile);
-    //     }
-    //   })
-    //   .catch(err => {console.log(err)})
+    API.getUser(userID)
+      .then(res => {
+        if (res.data.profile === null) {
+          history.push(`/profileform/${userID}`);
+        } else {
+          setProfileID(res.data.profile);
+        }
+      })
+      .catch(err => {console.log(err)})
   })
     
   

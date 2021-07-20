@@ -1,8 +1,5 @@
 const router = require("express").Router();
 const UserController = require("../../controllers/UserControllers");
-// const withAuth = require('../../utils/auth');
-
-// TO-DO: use withAuth on all funcs
 
 // Matches with "/api/user"
 router.route("/")

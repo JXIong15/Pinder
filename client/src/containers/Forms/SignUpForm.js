@@ -3,14 +3,20 @@ import Form from "react-bootstrap/Form";
 import Container from "react-bootstrap/Container";
 import Card from "react-bootstrap/Card";
 import API from "../../utils/API";
+import crypto from "crypto";
 
 class SignUpForm extends Component {
   state = {
     email: "",
     password: "",
     confirm: "",
-    profile: null
+    profile: ""
   };
+
+  componentDidMount() {
+    let profileID = crypto.randomBytes(12).toString('hex');
+    this.setState({profile: profileID});
+  }
 
   saveUser = () => {
     API.createUser({
@@ -73,6 +79,7 @@ class SignUpForm extends Component {
 
 
   render() {
+    console.log("Profile null", this.state.profile)
     return (
       <Container className="formContainer">
         <Card className="formsCard">
