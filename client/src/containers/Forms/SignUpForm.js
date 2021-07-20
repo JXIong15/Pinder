@@ -3,23 +3,29 @@ import Form from "react-bootstrap/Form";
 import Container from "react-bootstrap/Container";
 import Card from "react-bootstrap/Card";
 import API from "../../utils/API";
+import crypto from "crypto";
 
 class SignUpForm extends Component {
   state = {
     email: "",
     password: "",
-    confirm: ""
+    confirm: "",
+    profile: ""
   };
+
+  componentDidMount() {
+    let profileID = crypto.randomBytes(12).toString('hex');
+    this.setState({profile: profileID});
+  }
 
   saveUser = () => {
     API.createUser({
       email: this.state.email,
-      password: this.state.password
+      password: this.state.password,
+      profile: this.state.profile
     })
       .then(res => { 
-        console.log(res)
-        alert(`You're signed up!`);
-        window.location = "/login";
+        window.location = `/profileform/${res.data._id}`;
       })
       .catch(err => { 
         if (err.message === "Request failed with status code 500") {
@@ -61,16 +67,11 @@ class SignUpForm extends Component {
     } else {
       this.saveUser();
     }
-
-    this.setState({
-      email: "",
-      password: "",
-      confirm: ""
-    });
   };
 
 
   render() {
+    console.log("Profile null", this.state.profile)
     return (
       <Container className="formContainer">
         <Card className="formsCard">
