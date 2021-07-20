@@ -36,27 +36,12 @@ function Login(props) {
         } else {
           localStorage.setItem("token", res.data.token);
           setLoginStatus(true);
-          nextPage();
+          props.history.push("/");
         }
       })
       .catch((err) => {
         console.log(err)
       })
-  }
-
-  const nextPage = () => {
-    const token = localStorage.getItem("token");
-    const current_user = decode(token);
-
-    API.getUser(current_user.id)
-      .then(res => {
-        if (res.data.profile === null) {
-          props.history.push(`/profileform/${current_user.id}`);
-        } else {
-          props.history.push("/")
-        }
-      })
-      .catch(err => console.log(err))
   }
 
 

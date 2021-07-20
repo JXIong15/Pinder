@@ -25,9 +25,8 @@ class SignUpForm extends Component {
       profile: this.state.profile
     })
       .then(res => { 
-        console.log(res)
         alert(`You're signed up!`);
-        window.location = "/login";
+        window.location = `/profileform/${res.data._id}`;
       })
       .catch(err => { 
         if (err.message === "Request failed with status code 500") {
@@ -69,12 +68,6 @@ class SignUpForm extends Component {
     } else {
       this.saveUser();
     }
-
-    this.setState({
-      email: "",
-      password: "",
-      confirm: ""
-    });
   };
 
 
