@@ -43,6 +43,8 @@ const VideoChat = () => {
           console.error(err);
           setConnecting(false);
         });
+
+        
     },
     [roomName, username]
   );

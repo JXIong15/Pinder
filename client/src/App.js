@@ -58,10 +58,14 @@ function App() {
           <PrivateRoute exact path="/profile/:id" component={Profile} />
 
           <PrivateRoute exact path="/profileform/:id" component={ProfileForm} />
+<<<<<<< HEAD
+          <PrivateRoute exact path="/videochat" component={VideoChat} />
+=======
           <Route exact path="/videochat" component={VideoChat} />
 
 //           <PrivateRoute exact path="/videochat" component={VideoChat} />
 
+>>>>>>> da21ac306c1656992c2ee5e666139d75220ac3d9
           <PrivateRoute exact path="/matches" component={Matches} />
           <PrivateRoute exact path="/reviewform/:id" component={Barney} />
 
