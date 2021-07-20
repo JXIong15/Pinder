@@ -30,10 +30,14 @@ module.exports = {
       });
   },
 
+  // Future ideas: allow so that the email and password can be changed too
   update: function (req, res) {
     db.User
       .findOneAndUpdate({ _id: req.params.id }, req.body)
-      .then(dbModel => res.json(dbModel))
+      .then(dbModel => {
+        res.json(dbModel)
+        console.log("model", dbModel)
+      })
       .catch(err => res.status(422).json(err));
   },
 
