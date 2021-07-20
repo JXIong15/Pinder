@@ -80,7 +80,7 @@ class ProfileForm extends Component {
     } else {
       this.updateProfile();
     }
-    window.location = `/profile/${this.state.profile}`;
+    // window.location = `/profile/${this.state.profile}`;
   };
 
   // if user doesn't have a profile, create one for them
@@ -101,7 +101,7 @@ class ProfileForm extends Component {
     })
       .then(res => {
         this.setState({profile: res.data._id})
-        this.addProfileToUser();
+        // this.addProfileToUser();
       })
       .catch(err => {
         // NEED VALIDATORS TO SHOW
@@ -124,9 +124,12 @@ class ProfileForm extends Component {
         // .then(res2 => {console.log("User", res2.data)}).catch(err => console.log(err));
 
         // I know this is not the best way to do it, but I can't get the PUT to work. See notes above.
-        API.deleteUser(this.state.user).then(res3 => {
-          API.createUser(userData)
-        }).catch(err => console.log(err));
+        // API.deleteUser(this.state.user).then(res3 => {
+        //   API.createUser(userData)
+        //     .then(res4 => {})
+        //     .catch(err => console.log(err));
+        // })
+        // .catch(err => console.log(err));
       })
 
         

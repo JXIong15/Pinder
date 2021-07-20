@@ -44,7 +44,7 @@ class Profile extends Component {
 
     render() {
         // console.log("pics in prof:", this.state.profile.pictures)
-
+// console.log(this.state.profile.user)
         return (
             <div className="card">
                 <div className="head">
@@ -70,8 +70,8 @@ class Profile extends Component {
                     <button onClick={() => props.btn1(props._id)}>{props.label1}</button>
                     <button onClick={() => props.btn2(props._id)}>{props.label2}</button>
                 </div>  */}
-
-                {(this.state.user === this.state.id) ? (
+{/* NEED TO READ USER ID */}
+                {(this.state.profile.user === this.state.id) ? (
                     <Link to={`/profileform/${this.state.id}`}>
                         Edit Your Profile
                     </Link>

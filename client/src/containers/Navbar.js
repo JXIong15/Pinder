@@ -24,7 +24,8 @@ const Navbar = () => {
 
     API.getUser(userID)
       .then(res => {
-        if (res.data.profile === undefined) {
+        console.log(res.data)
+        if (res.data.profile === null) {
           history.push(`/profileform/${userID}`);
         } else {
           setProfileID(res.data.profile);
@@ -58,7 +59,8 @@ const Navbar = () => {
       {/* // AUTH NAV DOESN'T WORK RIGHT AWAY. HAVE TO REFRESH PAGE */}
       {auth ? (
         <Nav.Item>
-          <Nav.Link onClick={() => { history.push("/profile/" + profileID) }}>Profile</Nav.Link>
+        <Nav.Link onClick={() => console.log("Go to your profile")}>Profile</Nav.Link>
+          {/* <Nav.Link onClick={() => { history.push("/profile/" + profileID) }}>Profile</Nav.Link> */}
         </Nav.Item>
       ) : (
           <Nav.Item>
