@@ -36,7 +36,7 @@ function App() {
           <PrivateRoute exact path="/reviews/:id" component={Reviews} />
           <PrivateRoute exact path="/profile/:id" component={Profile} />
           <PrivateRoute exact path="/profileform/:id" component={ProfileForm} />
-          <PrivateRoute exact path="/videochat" component={VideoChat} />
+          <Route exact path="/videochat" component={VideoChat} />
           <PrivateRoute exact path="/matches" component={Matches} />
           <PrivateRoute exact path="/reviewform/:id" component={Barney} />
 
