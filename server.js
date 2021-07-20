@@ -1,7 +1,9 @@
 require('dotenv').config()
 const express = require("express");
-const { videoToken } = require('./tokens');
+
 const config = require('./config');
+const { chatToken, videoToken, voiceToken } = require('./tokens');
+
 
 
 const path = require("path");
@@ -59,6 +61,18 @@ app.post('/video/token', (req, res) => {
   sendTokenResponse(token, res);
 });
 
+app.get('/voice/token', (req, res) => {
+  const identity = req.body.identity;
+  const token = voiceToken(identity, config);
+  sendTokenResponse(token, res);
+});
+
+app.post('/voice/token', (req, res) => {
+  const identity = req.body.identity;
+  const token = voiceToken(identity, config);
+  sendTokenResponse(token, res);
+});
+
 
 // Add routes, both API and view
 app.use(routes);
@@ -69,6 +83,18 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/reactuserlist",
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
 })
+
+app.get('/chat/token', (req, res) => {
+  const identity = req.query.identity;
+  const token = chatToken(identity, config);
+  sendTokenResponse(token, res);
+});
+
+app.post('/chat/token', (req, res) => {
+  const identity = req.body.identity;
+  const token = chatToken(identity, config);
+  sendTokenResponse(token, res);
+});
 
 
 // Start the API server

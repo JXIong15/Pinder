@@ -4,7 +4,6 @@ const profileRoutes = require("./profile");
 const likesRoutes = require("./likes");
 const reviewsRoutes = require("./reviews");
 const passport = require("../../passport");
-require('dotenv').config()
 const jwt = require('jsonwebtoken');
 const verifyJWT = require("../../utils/verifyJWT");
 
@@ -13,7 +12,6 @@ router.use("/user", userRoutes);
 router.use("/profile", profileRoutes);
 router.use("/likes", likesRoutes);
 router.use("/reviews", reviewsRoutes);
-
 
 router.post("/login", passport.authenticate("local"), function (req, res) {
     console.log("login hit");
