@@ -47,6 +47,9 @@ export default {
   },
 
 
+  createLikes: function(likes) {
+    return axios.post("/api/likes", likes);
+  },
   getLikes: function(id) {
     return axios.get("/api/likes/" + id); 
   },
@@ -58,6 +61,9 @@ export default {
   },
 
 
+  createReviews: function(reviews) {
+    return axios.post("/api/reviews", reviews);
+  },
   getReviews: function(id) {
     return axios.get("/api/reviews/" + id); 
   },

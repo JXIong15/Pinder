@@ -27,10 +27,13 @@ class ProfileForm extends Component {
 
   componentDidMount() {
     let likesID = crypto.randomBytes(12).toString('hex');
-    this.setState({likes: likesID});
+    this.setState({ likes: likesID });
+    API.createLikes({
+      _id: this.state.likes
+    }).then(res => { }).catch(err => console.log(err))
 
-    let  reviewsID = crypto.randomBytes(12).toString('hex');
-    this.setState({reviews: reviewsID});
+    let reviewsID = crypto.randomBytes(12).toString('hex');
+    this.setState({ reviews: reviewsID });
   }
 
 
@@ -60,8 +63,8 @@ class ProfileForm extends Component {
 
     API.getUser(this.state.user)
       .then(res => {
-          this.setState({profile: res.data.profile});
-          this.makeProfile();
+        this.setState({ profile: res.data.profile });
+        this.makeProfile();
       })
       .catch(err => console.log(err));
   };
@@ -86,7 +89,15 @@ class ProfileForm extends Component {
     })
       .then(res => {
         this.setState({ profile: res.data._id });
-        window.location = `/login`;
+
+        API.createReviews({
+          _id: this.state.reviews,
+          profile: this.state.profile
+        })
+        .then(res => { window.location = `/login` })
+        .catch(err => console.log(err))
+
+        
       })
       .catch(err => {
         // NEED VALIDATORS TO SHOW

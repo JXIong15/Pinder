@@ -25,7 +25,6 @@ class SignUpForm extends Component {
       profile: this.state.profile
     })
       .then(res => { 
-        alert(`You're signed up!`);
         window.location = `/profileform/${res.data._id}`;
       })
       .catch(err => { 
