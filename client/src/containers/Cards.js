@@ -18,9 +18,9 @@ class Cards extends Component {
       .then(res => {
         this.setState({ allProfiles: res.data });
         this.sortProfiles();
-        console.log("HE")
+        // console.log("HE")
       })
-      .then (res2 => {console.log(this.state.profileOptions)})
+      // .then (res2 => {console.log(this.state.profileOptions)})
       .catch(err => {
         console.log(err);
       })
@@ -67,6 +67,7 @@ class Cards extends Component {
         }
       })
       .catch(err => {
+        this.setState({likesArr: [_id]});
         console.log(err);
       })
   }

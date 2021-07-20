@@ -22,15 +22,15 @@ const Navbar = () => {
       setUserID(current_user.id);
     }
 
-    API.getUser(userID)
-      .then(res => {
-        console.log(res.data)
-        if (res.data.profile === null) {
-          history.push(`/profileform/${userID}`);
-        } else {
-          setProfileID(res.data.profile);
-        }
-      })
+    // API.getUser(userID)
+    //   .then(res => {
+    //     if (res.data.profile === null) {
+    //       history.push(`/profileform/${userID}`);
+    //     } else {
+    //       setProfileID(res.data.profile);
+    //     }
+    //   })
+    //   .catch(err => {console.log(err)})
   })
     
   
@@ -49,10 +49,6 @@ const Navbar = () => {
 
       <Nav.Item>
         <Nav.Link onClick={() => { history.push("/matches") }}>My Matches</Nav.Link>
-      </Nav.Item>
-
-      <Nav.Item>
-        <Nav.Link href="/VideoChat">Video Chat</Nav.Link>
       </Nav.Item>
 
 
