@@ -18,7 +18,6 @@ import Home from "./containers/Home";
 // import './App.css';
 import NavBar from "./containers/NavBar/index.js";
 import Hero from './containers/Hero';
-// import Signup from './components/SignUpForm';
 
 function App() {
 
@@ -27,45 +26,22 @@ function App() {
       <NavBar />
       <Hero />
 
-
-      {/* MATCHES AND HOME DON'T WORK RIGHT AWAY */}
       <div>
         <Switch>
-          {/* If !logged-in */}
-          {/* <Route exact path="/" component={login} /> */}
-          {/* else*/}
-          {/* <Route exact path="/signup" component={SignUpForm} /> */}
+          <Route exact path="/signup" component={SignUpForm} />
           <Route exact path="/login" component={LoginForm} />
 
           <Route exact path="/" component={Home} />
-          <Route exact path="/matchme" component={Cards} />
-          {/* add /:id */}
-          <Route exact path="/message" component={Messages} />
-          <Route exact path="/reviews" component={Reviews} />
-          <Route exact path="/profile" component={Profile} />
-          {/* <Route exact path="/profileform" component={ProfileForm} /> */}
-          <Route exact path="/videochat" component={VideoChat} />
-          <Route exact path="/matches" component={Matches} />
-          <Route exact path="/reviewform" component={Barney} />
-          <Route exact path="/signup" component={SignUpForm} />
-          {/* <Route exact path="/login" component={Login} /> */}
-          <Route exact path="/profileform/:id" component={ProfileForm} />
-
-          <PrivateRoute exact path="/" component={Home} />
           <PrivateRoute exact path="/matchme" component={Cards} />
           <PrivateRoute exact path="/message" component={Messages} />
           <PrivateRoute exact path="/reviews/:id" component={Reviews} />
           <PrivateRoute exact path="/profile/:id" component={Profile} />
-
           <PrivateRoute exact path="/profileform/:id" component={ProfileForm} />
           <PrivateRoute exact path="/videochat" component={VideoChat} />
-          <Route exact path="/videochat" component={VideoChat} />
-
-       <PrivateRoute exact path="/videochat" component={VideoChat} />
-
+          {/* <Route exact path="/videochat" component={VideoChat} /> */}
+          <PrivateRoute exact path="/videochat" component={VideoChat} />
           <PrivateRoute exact path="/matches" component={Matches} />
           <PrivateRoute exact path="/reviewform/:id" component={Barney} />
-
           <Route path="*" componenet={() => "404 NOT FOUND"} />
         </Switch>
       </div>
