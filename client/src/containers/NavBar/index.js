@@ -67,8 +67,8 @@ function Nav() {
                 Log in
               </Button>
               <Login trigger={buttonPopUp} setTrigger={setButtonPopUp}>
-                <h3>My popup</h3>
-                <p>This is my button triggered popup</p>
+                <h3>Log In</h3>
+                {/* <p>This is my button triggered popup</p> */}
               </Login>
             {/* </Link> */}
           </li>

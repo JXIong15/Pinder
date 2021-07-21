@@ -51,7 +51,7 @@ function Login(props){
           close
         </button>
         {props.children}
-        <Container className = "container">
+        {/* <Container className = "container"> */}
           <Card className = "loginCard"> 
             <Card.Header>Login</Card.Header>
             <Form className = "loginForm" onSubmit={handleSubmit}>
@@ -75,7 +75,7 @@ function Login(props){
               </Button>
             </Form>
           </Card>
-        </Container>
+        {/* </Container> */}
       </div>
     </div>
   ) : "";
