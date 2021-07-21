@@ -12,9 +12,13 @@
     height: 500px;
   } */
 
-  /* .loginGroup{
-    height: 100px;
-  } */
+  .loginGroup{
+    height: 50px;
+  }
+
+  .loginCard{
+    height: 350px;
+  }
 
   /* .formLabel{
     height: 100px;
