@@ -1,12 +1,25 @@
-import React from 'react';
-import Carousel from 'react-bootstrap/Carousel';
+import React, { useEffect } from "react";
+import Carousel from "react-bootstrap/Carousel";
 import samantha from "../images/samantha.jpg";
 import clarisse from "../images/clarisse.jpg";
-import Card from 'react-bootstrap/Card';
+import Card from "react-bootstrap/Card";
 import "./style.css";
-
+// import axios from "axios";
 
 function PinderCards() {
+  // useEffect(() => {
+  //   if (token) {
+  //     fetchData(token);
+  //   }
+  // }, [token]);
+  // const fetchData = async (token) => {
+  //   const res = await axios.get("/api/profile", {
+  //     headers: {
+  //       Authorization: "Bearer " + token,
+  //     },
+  //   });
+  //   console.log(res.data);
+  // };
 
   return (
     <div className="pinder">

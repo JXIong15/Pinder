@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
-import './style.css';
+import React, { Component } from "react";
+import "./style.css";
 import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button"
-import Card from "react-bootstrap/Card"
-import Container from "react-bootstrap/Container"
+import Button from "react-bootstrap/Button";
+import Card from "react-bootstrap/Card";
+import Container from "react-bootstrap/Container";
 import API from "../../utils/API";
 import crypto from "crypto";
 
@@ -12,38 +12,37 @@ class SignUpForm extends Component {
     email: "",
     password: "",
     confirm: "",
-    profile: ""
+    profile: "",
   };
 
   componentDidMount() {
-    let profileID = crypto.randomBytes(12).toString('hex');
-    this.setState({profile: profileID});
+    let profileID = crypto.randomBytes(12).toString("hex");
+    this.setState({ profile: profileID });
   }
 
   saveUser = () => {
     API.createUser({
       email: this.state.email,
       password: this.state.password,
-      profile: this.state.profile
+      profile: this.state.profile,
     })
-    .then(res => { 
-      window.location = `/profileform/${res.data._id}`;
-    })
+      .then((res) => {
+        window.location = `/profileform/${res.data._id}`;
+      })
 
-    .catch(err => { 
-      if (err.message == "Request failed with status code 500") {
-        alert(`User already exists with email. Login instead!`);
-        window.location = "/login";
-      }
-      else {
-        // NEED VALIDATORS TO SHOW
-      alert(err); // CAN DIRECT TO LOGIN PAGE USING LINK
-      console.log(err);
-      }
-    });
-  }
+      .catch((err) => {
+        if (err.message == "Request failed with status code 500") {
+          alert(`User already exists with email. Login instead!`);
+          window.location = "/login";
+        } else {
+          // NEED VALIDATORS TO SHOW
+          alert(err); // CAN DIRECT TO LOGIN PAGE USING LINK
+          console.log(err);
+        }
+      });
+  };
 
-  handleInputChange = event => {
+  handleInputChange = (event) => {
     // Getting the value and name of the input which triggered the change
     let value = event.target.value;
     const name = event.target.name;
@@ -55,11 +54,11 @@ class SignUpForm extends Component {
     // Updating the input's state
 
     this.setState({
-      [name]: value
+      [name]: value,
     });
   };
 
-  handleFormSubmit = event => {
+  handleFormSubmit = (event) => {
     // Preventing the default behavior of the form submit (which is to refresh the page)
     event.preventDefault();
     if (!this.state.email || !this.state.password) {
@@ -73,17 +72,18 @@ class SignUpForm extends Component {
     this.setState({
       email: "",
       password: "",
-      confirm: ""
+      confirm: "",
     });
-  }
+  };
 
   render() {
-    return (this.props.trigger) ? (
+    return this.props.trigger ? (
       <div className="popup">
         <div className="popup-inner">
           <button
             className="close-btn"
-            onClick={() => this.props.setTrigger(false)}>
+            onClick={() => this.props.setTrigger(false)}
+          >
             close
           </button>
           {this.props.children}
@@ -125,15 +125,17 @@ class SignUpForm extends Component {
                     />
                   </Form.Group>
                   <Form.Group controlId="exampleForm.ControlSelect1"></Form.Group>
-                  </Form.Group>
+                </Form.Group>
                 <Button onClick={this.handleFormSubmit}>Sign Me Up!</Button>
               </Form>
             </Card>
           </Container>
         </div>
       </div>
-    ) : "";
-  };
+    ) : (
+      ""
+    );
+  }
 }
 
 export default SignUpForm;

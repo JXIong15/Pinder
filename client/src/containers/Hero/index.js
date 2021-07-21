@@ -1,30 +1,25 @@
-import React from 'react';
-import { useState } from 'react';
+import React from "react";
+import { useState } from "react";
 import "./style.css";
-import SignUpForm from '../SignUpForm';
-
+import SignUpForm from "../SignUpForm";
 
 function Hero() {
-
-
   const [buttonPopUp, setButtonPopUp] = useState(false);
-
-
 
   return (
     <div className="hero-container">
       <button
         className="button btn-icon btn-outline"
         type="submit"
-        onClick={() => setButtonPopUp(true)}>
+        onClick={() => setButtonPopUp(true)}
+      >
         CREATE ACCOUNT
       </button>
-        <SignUpForm trigger={buttonPopUp} setTrigger={setButtonPopUp}>
-          <h3>Sign Up</h3>
-          {/* <p>This is my button triggered popup</p> */}
-        </SignUpForm>
+      <SignUpForm trigger={buttonPopUp} setTrigger={setButtonPopUp}>
+        <h3>Sign Up</h3>
+        {/* <p>This is my button triggered popup</p> */}
+      </SignUpForm>
     </div>
-
   );
 }
 
