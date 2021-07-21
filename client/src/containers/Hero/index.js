@@ -20,8 +20,8 @@ function Hero() {
         CREATE ACCOUNT
       </button>
         <SignUpForm trigger={buttonPopUp} setTrigger={setButtonPopUp}>
-          <h3>My popup</h3>
-          <p>This is my button triggered popup</p>
+          <h3>Sign Up</h3>
+          {/* <p>This is my button triggered popup</p> */}
         </SignUpForm>
     </div>
 
