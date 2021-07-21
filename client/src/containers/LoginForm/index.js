@@ -53,7 +53,7 @@ function Login(props){
         {props.children}
         {/* <Container className = "container"> */}
           <Card className = "loginCard"> 
-            {/* <Card.Header>Login</Card.Header> */}
+            <Card.Header>Login</Card.Header>
             <Form className = "loginForm" onSubmit={handleSubmit}>
             <Form.Group className = "loginGroup" size="lg" controlId="email">
               <Form.Label className = "formLabel">Email</Form.Label>
