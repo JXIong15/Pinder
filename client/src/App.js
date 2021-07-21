@@ -30,18 +30,18 @@ function App() {
         <Switch>
           <Route exact path="/signup" component={SignUpForm} />
           <Route exact path="/login" component={LoginForm} />
-
           <Route exact path="/" component={Home} />
-          <PrivateRoute exact path="/matchme" component={Cards} />
-          <PrivateRoute exact path="/message" component={Messages} />
-          <PrivateRoute exact path="/reviews/:id" component={Reviews} />
-          <PrivateRoute exact path="/profile/:id" component={Profile} />
-          <PrivateRoute exact path="/profileform/:id" component={ProfileForm} />
-          <PrivateRoute exact path="/videochat" component={VideoChat} />
+
+          <Route exact path="/matchme" component={Cards} />
+          <Route exact path="/message" component={Messages} />
+          <Route exact path="/reviews/:id" component={Reviews} />
+          <Route exact path="/profile/:id" component={Profile} />
+          <Route exact path="/profileform/:id" component={ProfileForm} />
+          <Route exact path="/videochat" component={VideoChat} />
           {/* <Route exact path="/videochat" component={VideoChat} /> */}
-          <PrivateRoute exact path="/videochat" component={VideoChat} />
-          <PrivateRoute exact path="/matches" component={Matches} />
-          <PrivateRoute exact path="/reviewform/:id" component={Barney} />
+          <Route exact path="/videochat" component={VideoChat} />
+          <Route exact path="/matches" component={Matches} />
+          <Route exact path="/reviewform/:id" component={Barney} />
           <Route path="*" componenet={() => "404 NOT FOUND"} />
         </Switch>
       </div>
