@@ -1,5 +1,6 @@
+
 .popup {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
@@ -13,7 +14,7 @@
   .popup-inner {
     position: relative;
     padding: 32px;
-    width: 100%;
+    /* width: 50%; */
     max-width: 640px;
     background-color: #fff;
   }
@@ -24,6 +25,15 @@
     right: 16px;
   }
   
-  .Form {
-    border-radius: 10px;
+  /* .Form {
+    border-radius: 100px;
+  } */
+
+  .formContainer{
+    height: 400px;
   }
+
+  .formsCard{
+    height:400px;
+  }
+

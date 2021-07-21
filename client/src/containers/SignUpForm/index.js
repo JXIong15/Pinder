@@ -124,6 +124,7 @@ class SignUpForm extends Component {
                       value={this.state.confirm}
                     />
                   </Form.Group>
+                  <br></br>
                   <Form.Group controlId="exampleForm.ControlSelect1"></Form.Group>
                   </Form.Group>
                 <Button onClick={this.handleFormSubmit}>Sign Me Up!</Button>
