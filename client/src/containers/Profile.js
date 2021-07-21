@@ -13,9 +13,9 @@ class Profile extends Component {
     }
 
     componentDidMount() {
-        const token = localStorage.getItem("token");
-        const current_user = decode(token);
-        this.setState({ user: current_user.id });
+        // const token = localStorage.getItem("token");
+        // const current_user = decode(token);
+        // this.setState({ user: current_user.id });
         
         API.getProfile(this.state.id)
             .then(res => { 

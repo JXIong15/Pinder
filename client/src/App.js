@@ -41,12 +41,12 @@ function App() {
           <Route exact path="/matchme" component={Cards} />
           {/* add /:id */}
           <Route exact path="/message" component={Messages} />
-          <Route exact path="/reviews" component={Reviews} />
-          <Route exact path="/profile" component={Profile} />
+          <Route exact path="/reviews/:id" component={Reviews} />
+          <Route exact path="/profile/:id" component={Profile} />
           {/* <Route exact path="/profileform" component={ProfileForm} /> */}
           <Route exact path="/videochat" component={VideoChat} />
           <Route exact path="/matches" component={Matches} />
-          <Route exact path="/reviewform" component={Barney} />
+          <Route exact path="/reviewform/:id" component={Barney} />
           <Route exact path="/signup" component={SignUpForm} />
           {/* <Route exact path="/login" component={Login} /> */}
           <Route exact path="/profileform/:id" component={ProfileForm} />
