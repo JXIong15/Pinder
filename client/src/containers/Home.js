@@ -14,7 +14,7 @@ const Home = () => {
 
     return (
         <div className="card">
-            <h1>HOME</h1>
+            {/* <h1>HOME</h1> */}
             {/* <Profile setCurrentId={setCurrentId} /> */}
             
         </div>
